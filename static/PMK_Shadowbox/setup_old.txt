@@ -1,0 +1,242 @@
+lib.adapter = LOAD_REGISTER
+
+[globalVar = LIT:1 = {$plugin.pmkshadowbox.adapter}]
+# include the Dojo Toolkit adapter script
+lib.adapter.script.value (
+	<script type="text/javascript" src="{path:EXT:pmkshadowbox/res/shadowbox-2.0/build/adapter/shadowbox-dojo.js}"></script>
+)
+[GLOBAL]
+
+[globalVar = LIT:2 = {$plugin.pmkshadowbox.adapter}]
+# include the Ext adapter script
+lib.adapter.script.value (
+	<script type="text/javascript" src="/js/ext-2.0/adapter/ext/ext-base.js"></script>
+	<script type="text/javascript" src="/js/ext-2.0/ext-core.js"></script-->
+	<script type="text/javascript" src="{path:EXT:pmkshadowbox/res/shadowbox-2.0/build/adapter/shadowbox-ext.js}"></script>
+)
+[GLOBAL]
+
+[globalVar = LIT:3 = {$plugin.pmkshadowbox.adapter}]
+# include the MooTools adapter script
+lib.adapter.script.value (
+	<script type="text/javascript" src="/js/mootools-1.2.js"></script>
+	<script type="text/javascript" src="{path:EXT:pmkshadowbox/res/shadowbox-2.0/build/adapter/shadowbox-mootools.js}"></script>
+)
+[GLOBAL]
+
+[globalVar = LIT:4 = {$plugin.pmkshadowbox.adapter}]
+# include the Prototype adapter script
+lib.adapter.script.value (
+	<script type="text/javascript" src="{path:EXT:pmkshadowbox/res/shadowbox-2.0/build/adapter/shadowbox-prototype.js}"></script>
+)
+[GLOBAL]
+
+[globalVar = LIT:5 = {$plugin.pmkshadowbox.adapter}]
+# include the YUI adapter script
+lib.adapter.script.value (
+	<script type="text/javascript" src="{path:EXT:pmkshadowbox/res/shadowbox-2.0/build/adapter/shadowbox-yui.js}"></script>
+)
+[GLOBAL]
+
+[globalVar = LIT:6 = {$plugin.pmkshadowbox.adapter}]
+# include the jQuery adapter script
+lib.adapter.script.value (
+	<script type="text/javascript" src="{path:EXT:pmkshadowbox/res/shadowbox-2.0/build/adapter/shadowbox-jquery.js}"></script>
+)
+[GLOBAL]
+
+temp.options = TEXT
+temp.options.value (
+	{
+		animate: {$plugin.pmkshadowbox.animate},
+		animateFade: {$plugin.pmkshadowbox.animateFade},
+		modal: {$plugin.pmkshadowbox.modal},
+		autoplayMovies: {$plugin.pmkshadowbox.autoplayMovies},
+		showMovieControls: {$plugin.pmkshadowbox.showMovieControls},
+		displayNav: {$plugin.pmkshadowbox.displayNav},
+		continuous: {$plugin.pmkshadowbox.continuous},
+		displayCounter: {$plugin.pmkshadowbox.displayCounter},
+		enableKeys: {$plugin.pmkshadowbox.enableKeys},
+		skipSetup: {$plugin.pmkshadowbox.skipSetup},
+		initialWidth: {$plugin.pmkshadowbox.initialWidth},
+		initialHeight: {$plugin.pmkshadowbox.initialHeight},
+		counterLimit: {$plugin.pmkshadowbox.counterLimit},
+		viewportPadding: {$plugin.pmkshadowbox.viewportPadding},
+		resizeDuration: {$plugin.pmkshadowbox.resizeDuration},
+		fadeDuration: {$plugin.pmkshadowbox.fadeDuration},
+		slideshowDelay: {$plugin.pmkshadowbox.slideshowDelay},
+		overlayOpacity: {$plugin.pmkshadowbox.overlayOpacity},
+		animSequence: "{$plugin.pmkshadowbox.animSequence}",
+		counterType: "{$plugin.pmkshadowbox.counterType}",
+		handleOversize: "{$plugin.pmkshadowbox.handleOversize}",
+		handleUnsupported: "{$plugin.pmkshadowbox.handleUnsupported}",
+		handleException: "{$plugin.pmkshadowbox.handleException}",
+		onOpen: "{$plugin.pmkshadowbox.onOpen}",
+		onFinish: "{$plugin.pmkshadowbox.onFinish}",
+		onChange: "{$plugin.pmkshadowbox.onChange}",
+		onClose: "{$plugin.pmkshadowbox.onClose}",
+		errors: "{$plugin.pmkshadowbox.errors}",
+		ext: "{$plugin.pmkshadowbox.ext}",
+		flvPlayer: "{$plugin.pmkshadowbox.flvPlayer}",
+		overlayColor: "{$plugin.pmkshadowbox.overlayColor}",
+		flashBgColor: "{$plugin.pmkshadowbox.flashBgColor}"
+	}
+)
+// Virker ikke
+/*
+ 		skipSetup: {$plugin.pmkshadowbox.skipSetup},
+*/
+	
+temp.options >
+temp.options = COA
+temp.options {
+  wrap = {|}
+	10 =TEXT
+	10.value (
+		animate: {$plugin.pmkshadowbox.animate},
+		animateFade: {$plugin.pmkshadowbox.animateFade},
+		modal: {$plugin.pmkshadowbox.modal},
+		autoplayMovies: {$plugin.pmkshadowbox.autoplayMovies},
+		showMovieControls: {$plugin.pmkshadowbox.showMovieControls},
+		displayNav: {$plugin.pmkshadowbox.displayNav},
+		continuous: {$plugin.pmkshadowbox.continuous},
+		displayCounter: {$plugin.pmkshadowbox.displayCounter},
+		enableKeys: {$plugin.pmkshadowbox.enableKeys},
+		initialWidth: {$plugin.pmkshadowbox.initialWidth},
+		initialHeight: {$plugin.pmkshadowbox.initialHeight},
+		counterLimit: {$plugin.pmkshadowbox.counterLimit},
+		viewportPadding: {$plugin.pmkshadowbox.viewportPadding},
+		resizeDuration: {$plugin.pmkshadowbox.resizeDuration},
+		fadeDuration: {$plugin.pmkshadowbox.fadeDuration},
+		slideshowDelay: {$plugin.pmkshadowbox.slideshowDelay},
+		overlayOpacity: {$plugin.pmkshadowbox.overlayOpacity},
+		animSequence: "{$plugin.pmkshadowbox.animSequence}",
+		counterType: "{$plugin.pmkshadowbox.counterType}",
+		handleOversize: "{$plugin.pmkshadowbox.handleOversize}",
+		handleUnsupported: "{$plugin.pmkshadowbox.handleUnsupported}",
+		handleException: {$plugin.pmkshadowbox.handleException},
+		onOpen: {$plugin.pmkshadowbox.onOpen},
+		onFinish: {$plugin.pmkshadowbox.onFinish},
+		onChange: {$plugin.pmkshadowbox.onChange},
+		onClose: {$plugin.pmkshadowbox.onClose},
+		overlayColor: "{$plugin.pmkshadowbox.overlayColor}",
+		flashBgColor: "{$plugin.pmkshadowbox.flashBgColor}",
+	)
+
+	20 = TEXT
+	20.value = {$plugin.pmkshadowbox.errors}
+	20.required = 1
+	20.wrap = errors: |,
+
+	30 = TEXT
+	30.value = {$plugin.pmkshadowbox.ext}
+	30.required = 1
+	30.wrap = ext: |,
+
+	100 = TEXT
+	100.dataWrap = flvPlayer: "{$plugin.pmkshadowbox.flvPlayer}" 
+}
+
+
+
+lib.adapter.langurl.cObject = COA
+lib.adapter.langurl.cObject {
+
+	# Include javascript language file, based on selected FE language. (If language file doesn't exists, English is used) 
+	10 = TEXT
+	10.typolink.parameter.cObject = TEXT
+	10.typolink.parameter.cObject.data = TSFE:lang
+	10.typolink.parameter.cObject.wrap = {path:EXT:pmkshadowbox/res/src/lang/shadowbox-|.js}
+	10.typolink.parameter.insertData = 1
+	10.typolink.returnLast = url
+	10.ifEmpty.typolink.parameter.dataWrap = {path:EXT:pmkshadowbox/res/src/lang/shadowbox-en.js}
+	10.ifEmpty.typolink.returnLast = url
+	10.wrap = <script type="text/javascript" src="|"></script>
+	
+}
+
+lib.adapter.playerurl.cObject = COA
+lib.adapter.playerurl.cObject {
+	10 = TEXT
+	10.value  = {$plugin.pmkshadowbox.players}
+	10.split {
+		token = ,
+		cObjNum = 1
+		1 = TEXT
+		1.typolink.parameter.cObject = TEXT
+		1.typolink.parameter.cObject.current = 1
+		1.typolink.parameter.cObject.trim = 1
+		1.typolink.parameter.cObject.wrap = {path:EXT:pmkshadowbox/res/src/player/shadowbox-|.js}
+		1.typolink.parameter.insertData = 1
+		1.typolink.returnLast = url
+		1.wrap = <script type="text/javascript" src="|"></script>
+
+	}
+}
+
+
+
+
+
+page.headerData.1220 < lib.adapter
+page.headerData.1230 >
+page.headerData.1230 = COA
+page.headerData.1230.4 = TEXT
+page.headerData.1230.4.value = window.onload = function(){ Shadowbox.init(
+page.headerData.1230.5 < temp.options
+page.headerData.1230.6 = TEXT
+page.headerData.1230.6.value = 	); };
+page.headerData.1230.stdWrap.dataWrap (
+	{register:script}
+	<script type="text/javascript" src="{path:EXT:pmkshadowbox/res/build/adapter/shadowbox-base.js}"></script>
+	{register:langurl}
+	<script type="text/javascript" src="{path:EXT:pmkshadowbox/res/build/shadowbox.js}"></script>
+	{register:playerurl}
+	<script type="text/javascript" src="{path:{$plugin.pmkshadowbox.skinJSfile}}"></script>
+	<script type="text/javascript">|</script>
+	<link rel="stylesheet" href="{path:{$plugin.pmkshadowbox.skinCSSfile}}" type="text/css" media="screen" />
+)
+
+tt_content.image.20.1 {
+
+	titleText.field = {$plugin.pmkshadowbox.imgtext.captionField}
+	titleText.htmlSpecialChars = 1
+	
+	# Removing the default "imageLinkWrap" TS code, and add new one to enable Lightbox effect.
+	imageLinkWrap >
+	imageLinkWrap = 1
+	imageLinkWrap {
+
+		# Enable linkwrapping if either click-enlarge is selected or a link is defined.
+		enable.field = image_zoom
+		enable.ifEmpty.typolink.parameter.field = image_link
+		enable.ifEmpty.typolink.parameter.listNum.stdWrap.data = register : IMAGE_NUM_CURRENT
+		enable.ifEmpty.typolink.returnLast = url
+
+		# Add new typolink wrapping code
+		typolink {
+			target = {$styles.content.links.target}
+			extTarget = {$styles.content.links.extTarget}
+
+			# This returns a link, pointing to the path + name of the original image.
+			# or to the path + name of the resized lightbox image (if maxH or maxW is reached.)
+			parameter.cObject = IMG_RESOURCE
+			parameter.cObject.file.import.data = TSFE:lastImageInfo|origFile
+			#parameter.cObject.file.maxW = {$plugin.pmkshadowbox.slimBoxMaxW}
+			#parameter.cObject.file.maxH = {$plugin.pmkshadowbox.slimBoxMaxH}
+	
+			# Except if the linkfield is not empty
+			parameter.override.field = image_link
+			parameter.override.listNum.stdWrap.data = register : IMAGE_NUM_CURRENT
+			parameter.override.if.isTrue.field = image_link
+		
+			# Add the "rel" attribute needed to activate the lightbox effect.
+			ATagParams = rel="shadowbox"
+			ATagParams.override = rel="shadowbox[sb{field:uid}]"
+			ATagParams.override.if.isTrue = {$plugin.pmkshadowbox.imgtext.navigable}
+			ATagParams.insertData = 1
+			ATagParams.if.isTrue.field = image_zoom
+
+		}
+	}
+}
