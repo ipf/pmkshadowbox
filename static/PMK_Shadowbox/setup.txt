@@ -5,8 +5,8 @@ page.headerData.1230 {
 	1 = TEXT
 	1.dataWrap = <script type="text/javascript" src="{path:{$plugin.pmkshadowbox.jsFramework}}"></script>
 	1.if.isTrue.value = {$plugin.pmkshadowbox.jsFramework}
-	
-	# Include the Base adapter script 
+
+	# Include the Base adapter script
 	# Note: This part might be different/changed if a special adapter is chosen.
 	# (See conditions later in this TS setup.)
 	2 = TEXT
@@ -43,7 +43,7 @@ page.headerData.1230 {
 		1.typolink.returnLast = url
 		1.wrap = <script type="text/javascript" src="|"></script>
 	}
-	
+
 	# Include the skin script
 	6 = TEXT
 	6.dataWrap = <script type="text/javascript" src="{path:{$plugin.pmkshadowbox.skinPath}/skin.js}"></script>
@@ -82,7 +82,7 @@ page.headerData.1230 {
 		flashBgColor: '{$plugin.pmkshadowbox.flashBgColor}',
 		flvPlayer: '{path:{$plugin.pmkshadowbox.flvPlayer}}'
 	)
-	
+
 	# Include the skin CSS
 	8 = TEXT
 	8.dataWrap = <link rel="stylesheet" href="{path:{$plugin.pmkshadowbox.skinPath}/skin.css}" type="text/css" media="screen" />
@@ -110,7 +110,7 @@ page.headerData.1230.2.dataWrap = <script type="text/javascript" src="{path:EXT:
 
 [globalVar = LIT:5 = {$plugin.pmkshadowbox.adapter}]
 # include the YUI adapter script
-page.headerData.1230.2.dataWrap = <script type="text/javascript" src="{path:EXT:pmkshadowbox/res/shadowbox-2.0/build/adapter/shadowbox-yui.js}"></script>
+page.headerData.1230.2.dataWrap = <script type="text/javascript" src="{path:EXT:pmkshadowbox/res/build/adapter/shadowbox-yui.js}"></script>
 [GLOBAL]
 
 [globalVar = LIT:6 = {$plugin.pmkshadowbox.adapter}]
@@ -120,12 +120,12 @@ page.headerData.1230.2.dataWrap = <script type="text/javascript" src="{path:EXT:
 
 
 
-# Modify the standard TYPO3 "Click Enlarge" option, so that lightbox effect is used.  
+# Modify the standard TYPO3 "Click Enlarge" option, so that lightbox effect is used.
 tt_content.image.20.1 {
 
 	titleText.field = {$plugin.pmkshadowbox.imgtext.captionField}
 	titleText.htmlSpecialChars = 1
-	
+
 	# Removing the default "imageLinkWrap" TS code, and add new one to enable Lightbox effect.
 	imageLinkWrap >
 	imageLinkWrap = 1
@@ -148,12 +148,12 @@ tt_content.image.20.1 {
 			parameter.cObject.file.import.data = TSFE:lastImageInfo|origFile
 			#parameter.cObject.file.maxW = {$plugin.pmkshadowbox.slimBoxMaxW}
 			#parameter.cObject.file.maxH = {$plugin.pmkshadowbox.slimBoxMaxH}
-	
+
 			# Except if the linkfield is not empty
 			parameter.override.field = image_link
 			parameter.override.listNum.stdWrap.data = register : IMAGE_NUM_CURRENT
 			parameter.override.if.isTrue.field = image_link
-		
+
 			# Add the "rel" attribute needed to activate the lightbox effect.
 			ATagParams = rel="shadowbox"
 			ATagParams.override = rel="shadowbox[sb{field:uid}]"

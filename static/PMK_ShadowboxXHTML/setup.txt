@@ -11,7 +11,34 @@ page.1230 {
 	# (See conditions later in this TS setup.)
 	20 = USER
 	20.userFunc = user_shadowbox->addJS
-	20.jsfile.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-base.js}
+	#20.jsfile.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-base.js}
+	20.jsfile.cObject = COA
+	20.jsfile.cObject {
+		10 = CASE
+		10 {
+			key = {$plugin.pmkshadowbox.adapter}
+			default = TEXT
+			default.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-base.js}
+
+			1 = TEXT
+			1.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-dojo.js}
+
+			2 = TEXT
+			2.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-ext.js}
+
+			3 = TEXT
+			3.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-mootools.js}
+
+			4 = TEXT
+			4.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-prototype.js}
+
+			5 = TEXT
+			5.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-yui.js}
+
+			6 = TEXT
+			6.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-jquery.js}
+		}
+	}
 
 	# Include javascript language file, based on selected FE language.
 	# If language file doesn't exists, English is used.
@@ -96,38 +123,6 @@ page.headerData.1230 = TEXT
 page.headerData.1230.dataWrap (
 		<link rel="stylesheet" href="{path:{$plugin.pmkshadowbox.skinPath}/skin.css}" type="text/css" media="screen" />
 )
-
-[globalVar = LIT:1 = {$plugin.pmkshadowbox.adapter}]
-# include the Dojo Toolkit adapter script
-page.1230.20.jsfile.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-dojo.js}
-[GLOBAL]
-
-[globalVar = LIT:2 = {$plugin.pmkshadowbox.adapter}]
-# include the Ext adapter script
-page.1230.20.jsfile.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-ext.js}
-[GLOBAL]
-
-[globalVar = LIT:3 = {$plugin.pmkshadowbox.adapter}]
-# include the MooTools adapter script
-page.1230.20.jsfile.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-mootools.js}
-[GLOBAL]
-
-[globalVar = LIT:4 = {$plugin.pmkshadowbox.adapter}]
-# include the Prototype adapter script
-page.1230.20.jsfile.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-prototype.js}
-[GLOBAL]
-
-[globalVar = LIT:5 = {$plugin.pmkshadowbox.adapter}]
-# include the YUI adapter script
-page.1230.20.jsfile.dataWrap = {path:EXT:pmkshadowbox/res/shadowbox-2.0/build/adapter/shadowbox-yui.js}
-[GLOBAL]
-
-[globalVar = LIT:6 = {$plugin.pmkshadowbox.adapter}]
-# include the jQuery adapter script
-page.1230.20.jsfile.dataWrap = {path:EXT:pmkshadowbox/res/build/adapter/shadowbox-jquery.js}
-[GLOBAL]
-
-
 
 # Modify the standard TYPO3 "Click Enlarge" option, so that lightbox effect is used.
 tt_content.image.20.1 {
