@@ -2,8 +2,11 @@ page.headerData.1230 >
 page.headerData.1230 = COA
 page.headerData.1230 {
 	1 = TEXT
-	1.dataWrap = <script type="text/javascript" src="{path:{$plugin.pmkshadowbox.jsFramework}}"></script>
-	1.if.isTrue.value = {$plugin.pmkshadowbox.jsFramework}
+	1 {
+		wrap = <script type="text/javascript" src="|"></script>
+		stdWrap.dataWrap = {path:{$plugin.pmkshadowbox.jsFramework}}
+		if.isTrue.value = {$plugin.pmkshadowbox.jsFramework}
+	}
 
 	# Include the Base adapter script
 	# Note: This part might be different/changed if a special adapter is chosen.
@@ -55,65 +58,89 @@ page.headerData.1230 {
 
 	# Include the main script
 	4 = TEXT
-	4.dataWrap = <script type="text/javascript" src="{path:EXT:pmkshadowbox/res/build/shadowbox.js}"></script>
+	4 {
+		wrap = <script type="text/javascript" src="|"></script>
+		stdWrap.dataWrap = {path:EXT:pmkshadowbox/res/build/shadowbox.js}
+	}
 
 	# Include player scripts
 	5 = TEXT
-	5.value  = {$plugin.pmkshadowbox.players}
-	5.split {
-		token = ,
-		cObjNum = 1
-		1 = TEXT
-		1 {
-			current = 1
-			trim = 1
-			wrap = <script type="text/javascript" src="{path:EXT:pmkshadowbox/res/build/player/shadowbox-|.js}"></script>
-			insertData = 1
+	5 {
+		value  = {$plugin.pmkshadowbox.players}
+		split {
+			token = ,
+			cObjNum = 1
+			1 = TEXT
+			1 {
+				current = 1
+				trim = 1
+				wrap2 = <script type="text/javascript" src="|"></script>
+				wrap = {path:EXT:pmkshadowbox/res/build/player/shadowbox-|.js}
+				insertData = 1
+			}
 		}
 	}
 
 	# Include the skin script
 	6 = TEXT
-	6.dataWrap = <script type="text/javascript" src="{path:{$plugin.pmkshadowbox.skinPath}/skin.js}"></script>
+	6 {
+		wrap = <script type="text/javascript" src="|"></script>
+		stdWrap.dataWrap = {path:{$plugin.pmkshadowbox.skinPath}/skin.js}
+	}
 
 	# Insert inline activation code
 	7 = TEXT
-	7.wrap = <script type="text/javascript">window.onload = function(){ Shadowbox.init( {|} ); };</script>
-	7.stdWrap.dataWrap (
-		animate: {$plugin.pmkshadowbox.animate},
-		animateFade: {$plugin.pmkshadowbox.animateFade},
-		modal: {$plugin.pmkshadowbox.modal},
-		autoplayMovies: {$plugin.pmkshadowbox.autoplayMovies},
-		showMovieControls: {$plugin.pmkshadowbox.showMovieControls},
-		displayNav: {$plugin.pmkshadowbox.displayNav},
-		continuous: {$plugin.pmkshadowbox.continuous},
-		displayCounter: {$plugin.pmkshadowbox.displayCounter},
-		enableKeys: {$plugin.pmkshadowbox.enableKeys},
-		initialWidth: {$plugin.pmkshadowbox.initialWidth},
-		initialHeight: {$plugin.pmkshadowbox.initialHeight},
-		counterLimit: {$plugin.pmkshadowbox.counterLimit},
-		viewportPadding: {$plugin.pmkshadowbox.viewportPadding},
-		resizeDuration: {$plugin.pmkshadowbox.resizeDuration},
-		fadeDuration: {$plugin.pmkshadowbox.fadeDuration},
-		slideshowDelay: {$plugin.pmkshadowbox.slideshowDelay},
-		overlayOpacity: {$plugin.pmkshadowbox.overlayOpacity},
-		animSequence: '{$plugin.pmkshadowbox.animSequence}',
-		counterType: '{$plugin.pmkshadowbox.counterType}',
-		handleOversize: '{$plugin.pmkshadowbox.handleOversize}',
-		handleUnsupported: '{$plugin.pmkshadowbox.handleUnsupported}',
-		handleException: {$plugin.pmkshadowbox.handleException},
-		onOpen: {$plugin.pmkshadowbox.onOpen},
-		onFinish: {$plugin.pmkshadowbox.onFinish},
-		onChange: {$plugin.pmkshadowbox.onChange},
-		onClose: {$plugin.pmkshadowbox.onClose},
-		overlayColor: '{$plugin.pmkshadowbox.overlayColor}',
-		flashBgColor: '{$plugin.pmkshadowbox.flashBgColor}',
-		flvPlayer: '{path:{$plugin.pmkshadowbox.flvPlayer}}'
-	)
+	7 {
+		wrap (
+			<script type="text/javascript">
+				/*<![CDATA[*/
+				<!--
+				window.onload = function() { Shadowbox.init( {
+					|
+				} ); };
+				// -->
+				/*]]>*/
+			</script>
+		)
+		stdWrap.dataWrap (
+			animate: {$plugin.pmkshadowbox.animate},
+			animateFade: {$plugin.pmkshadowbox.animateFade},
+			modal: {$plugin.pmkshadowbox.modal},
+			autoplayMovies: {$plugin.pmkshadowbox.autoplayMovies},
+			showMovieControls: {$plugin.pmkshadowbox.showMovieControls},
+			displayNav: {$plugin.pmkshadowbox.displayNav},
+			continuous: {$plugin.pmkshadowbox.continuous},
+			displayCounter: {$plugin.pmkshadowbox.displayCounter},
+			enableKeys: {$plugin.pmkshadowbox.enableKeys},
+			initialWidth: {$plugin.pmkshadowbox.initialWidth},
+			initialHeight: {$plugin.pmkshadowbox.initialHeight},
+			counterLimit: {$plugin.pmkshadowbox.counterLimit},
+			viewportPadding: {$plugin.pmkshadowbox.viewportPadding},
+			resizeDuration: {$plugin.pmkshadowbox.resizeDuration},
+			fadeDuration: {$plugin.pmkshadowbox.fadeDuration},
+			slideshowDelay: {$plugin.pmkshadowbox.slideshowDelay},
+			overlayOpacity: {$plugin.pmkshadowbox.overlayOpacity},
+			animSequence: '{$plugin.pmkshadowbox.animSequence}',
+			counterType: '{$plugin.pmkshadowbox.counterType}',
+			handleOversize: '{$plugin.pmkshadowbox.handleOversize}',
+			handleUnsupported: '{$plugin.pmkshadowbox.handleUnsupported}',
+			handleException: {$plugin.pmkshadowbox.handleException},
+			onOpen: {$plugin.pmkshadowbox.onOpen},
+			onFinish: {$plugin.pmkshadowbox.onFinish},
+			onChange: {$plugin.pmkshadowbox.onChange},
+			onClose: {$plugin.pmkshadowbox.onClose},
+			overlayColor: '{$plugin.pmkshadowbox.overlayColor}',
+			flashBgColor: '{$plugin.pmkshadowbox.flashBgColor}',
+			flvPlayer: '{path:{$plugin.pmkshadowbox.flvPlayer}}'
+		)
+	}
 
 	# Include the skin CSS
 	8 = TEXT
-	8.dataWrap = <link rel="stylesheet" href="{path:{$plugin.pmkshadowbox.skinPath}/skin.css}" type="text/css" media="screen" />
+	8 {
+		wrap = <link rel="stylesheet" href="|" type="text/css" media="screen" />
+		stdWrap.dataWrap = {path:{$plugin.pmkshadowbox.skinPath}/skin.css}
+	}
 }
 
 # Modify the standard TYPO3 "Click Enlarge" option, so that lightbox effect is used.
