@@ -41,14 +41,19 @@ page.1230 {
 	}
 
 	# Include javascript language file, based on selected FE language.
-	# If language file doesn't exists, English is used.
+	# If language file doesn't exists, fallback language is used.
 	30 = USER
 	30.userFunc = user_shadowbox->addJS
-	30.jsfile {
-		data = TSFE:lang
-		ifEmpty = en
-		wrap = {path:EXT:pmkshadowbox/res/build/lang/shadowbox-|.js}
-		insertData = 1
+	30.jsfile.cObject = COA
+	30.jsfile.cObject {
+		10 = TEXT
+		10 {
+			data = TSFE:lang
+			wrap = {path:EXT:pmkshadowbox/res/build/lang/shadowbox-|.js}
+			insertData = 1
+		}
+
+		stdWrap.ifEmpty.dataWrap = {path:EXT:pmkshadowbox/res/build/lang/shadowbox-{$plugin.pmkshadowbox.fallbackLanguage}.js}
 	}
 
 	# Include the main script
