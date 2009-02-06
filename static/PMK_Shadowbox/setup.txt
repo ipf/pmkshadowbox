@@ -95,9 +95,17 @@ page.headerData.1230 {
 			<script type="text/javascript">
 				/*<![CDATA[*/
 				<!--
-				window.onload = function() { Shadowbox.init( {
-					|
-				} ); };
+				function shadowBoxInit() {
+					Shadowbox.init( {
+						|
+					} );
+				}
+
+				if (window.addEventListener) { 
+					window.addEventListener('load', shadowBoxInit, false); 
+				} else if (window.attachEvent) { 
+					window.attachEvent('onload', shadowBoxInit); 
+				}
 				// -->
 				/*]]>*/
 			</script>
@@ -145,7 +153,6 @@ page.headerData.1230 {
 
 # Modify the standard TYPO3 "Click Enlarge" option, so that lightbox effect is used.
 tt_content.image.20.1 {
-
 	titleText.field = {$plugin.pmkshadowbox.imgtext.captionField}
 	titleText.htmlSpecialChars = 1
 
@@ -153,7 +160,6 @@ tt_content.image.20.1 {
 	imageLinkWrap >
 	imageLinkWrap = 1
 	imageLinkWrap {
-
 		# Enable linkwrapping if either click-enlarge is selected or a link is defined.
 		enable.field = image_zoom
 		enable.ifEmpty.typolink.parameter.field = image_link
@@ -183,7 +189,6 @@ tt_content.image.20.1 {
 			ATagParams.override.if.isTrue = {$plugin.pmkshadowbox.imgtext.navigable}
 			ATagParams.insertData = 1
 			ATagParams.if.isTrue.field = image_zoom
-
 		}
 	}
 }
