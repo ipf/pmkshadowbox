@@ -91,14 +91,16 @@ page.headerData.1230 {
 	# Insert inline activation code
 	7 = TEXT
 	7 {
+		# check if the setup code should be skipped
+		if.isFalse = {$plugin.pmkshadowbox.skipSetup}
+
 		wrap (
 			<script type="text/javascript">
 				/*<![CDATA[*/
 				<!--
 				function shadowBoxInit() {
-					Shadowbox.init( {
+					Shadowbox.init({
 						|
-					} );
 				}
 
 				if (window.addEventListener) { 
@@ -110,6 +112,20 @@ page.headerData.1230 {
 				/*]]>*/
 			</script>
 		)
+
+		# image map initialisation
+		value (
+					});
+
+					Shadowbox.setup(document.getElementsByTagName('area'), {
+						{$plugin.pmkshadowbox.imageMapOptions}
+					});
+		)
+
+		# no value if the imagemap setup stuff should be skipped
+		override = });
+		override.if.isTrue = {$plugin.pmkshadowbox.skipImageMapSetup}
+
 		stdWrap.dataWrap (
 			animate: {$plugin.pmkshadowbox.animate},
 			animateFade: {$plugin.pmkshadowbox.animateFade},
