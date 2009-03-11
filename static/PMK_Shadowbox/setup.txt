@@ -105,7 +105,10 @@ temp.shadowBoxInit {
 	# image map initialisation
 	value (
 				});
-				Shadowbox.setup(document.getElementsByTagName('area'), {{$plugin.pmkshadowbox.imageMapOptions}});
+				var shadowBoxElements = document.getElementsByTagName('area');
+				if (shadowBoxElements.length) {
+					Shadowbox.setup(shadowBoxElements, {{$plugin.pmkshadowbox.imageMapOptions}});
+				}
 	)
 
 	# no value if the imagemap setup stuff should be skipped
