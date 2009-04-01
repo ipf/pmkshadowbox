@@ -130,6 +130,9 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox//ok; type=string; label= Fallback Language: You can define the fallback language of the shadowbox script. The fallback is used if the variable config.language or a language file doesn't exists. Defaults to "en".
 	fallbackLanguage = en
 
+	# cat=pmkshadowbox//ol; type=options[auto,yes,no]; label=Scrollbar Behaviour of Iframes: You can changed the scrollbar behaviour of iframes with this setting. The "auto" option let the browser decide, but it's not the prefered solution in some cases. Just set the value to "no" to get finally rid of the scrollbars. The option defaults to "auto".
+	iframeScrolling = auto
+
 	# File options
 
 	# cat=pmkshadowbox/file/f1; type=file[swf]; label= Videoplayer: The URL of the flash video player. Only needed when displaying Flash video content. Defaults to "EXT:pmkshadowbox/res/flvplayer.swf".

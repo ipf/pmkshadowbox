@@ -159,7 +159,8 @@ temp.shadowBoxInit {
 		onClose: {$plugin.pmkshadowbox.onClose},
 		overlayColor: '{$plugin.pmkshadowbox.overlayColor}',
 		flashBgColor: '{$plugin.pmkshadowbox.flashBgColor}',
-		flvPlayer: '{path:{$plugin.pmkshadowbox.flvPlayer}}'
+		flvPlayer: '{path:{$plugin.pmkshadowbox.flvPlayer}}',
+		iframeScrolling: '{$plugin.pmkshadowbox.iframeScrolling}'
 	)
 }
 
