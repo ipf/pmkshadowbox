@@ -79,16 +79,16 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox//o1; type=options[None=0, Dojo Toolkit=1, Ext=2, MooTools=3, Prototype=4, YUI=5, jQuery=6]; label= JS Adapter: Although Shadowbox can be used in standalone mode, it's just as easy to use Shadowbox with your JavaScript library of choice for a given project. This is accomplished using adapters. An adapter is a small file that tells Shadowbox which methods to call on the underlying framework to achieve some common purpose such as querying the DOM or handling events.
 	adapter = 0
 
-	# cat=pmkshadowbox//o2; type=int+; label= Resizing Duration: The duration (in seconds) of the resizing animations. Defaults to 0.55.
+	# cat=pmkshadowbox//o2; type=short; label= Resizing Duration: The duration (in seconds) of the resizing animations. Defaults to 0.55.
 	resizeDuration = 0.55
 
-	# cat=pmkshadowbox//o3; type=int+; label= Fade Duration: The duration (in seconds) of the fade animations. Defaults to 0.35.
+	# cat=pmkshadowbox//o3; type=short; label= Fade Duration: The duration (in seconds) of the fade animations. Defaults to 0.35.
 	fadeDuration = 0.35
 
-	# cat=pmkshadowbox//o4; type=int+; label= Slideshow delay: A delay (in seconds) to use for slideshows. If set to anything other than 0, this value determines an interval at which Shadowbox will automatically proceed to the next piece in the gallery. Defaults to 0.
+	# cat=pmkshadowbox//o4; type=short; label= Slideshow delay: A delay (in seconds) to use for slideshows. If set to anything other than 0, this value determines an interval at which Shadowbox will automatically proceed to the next piece in the gallery. Defaults to 0.
 	slideshowDelay = 0
 
-	# cat=pmkshadowbox//o5; type=int+; label= Opacity level: The opacity to use for the modal overlay. Defaults to 0.8.
+	# cat=pmkshadowbox//o5; type=short; label= Opacity level: The opacity to use for the modal overlay. Defaults to 0.8.
 	overlayOpacity = 0.8
 
 	# cat=pmkshadowbox//o6; type=options[wh,hw,sync]; label= Animation sequence: The animation sequence to use when resizing Shadowbox. May be either "wh" (width first, then height), "hw" (height first, then width), or "sync" (both simultaneously). Defaults to "wh".
