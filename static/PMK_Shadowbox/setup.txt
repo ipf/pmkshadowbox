@@ -205,8 +205,6 @@ tt_content.image.20.1 {
 			# or to the path + name of the resized lightbox image (if maxH or maxW is reached.)
 			parameter.cObject = IMG_RESOURCE
 			parameter.cObject.file.import.data = TSFE:lastImageInfo|origFile
-			#parameter.cObject.file.maxW = {$plugin.pmkshadowbox.slimBoxMaxW}
-			#parameter.cObject.file.maxH = {$plugin.pmkshadowbox.slimBoxMaxH}
 
 			# Except if the linkfield is not empty
 			parameter.override.field = image_link
