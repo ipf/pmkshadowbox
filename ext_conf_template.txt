@@ -1,0 +1,2 @@
+# cat=basic/enable; type=boolean; label=Disable Cache?: Enable this setting to disable the cache. This can be useful in the developing mode or if you have troubles with the feature!
+disableCache = 0

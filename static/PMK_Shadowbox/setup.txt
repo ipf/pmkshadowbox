@@ -1,6 +1,12 @@
+includeLibs.shadowboxCache = EXT:pmkshadowbox/class.tx_pmkshadowbox_cache.php
+
 page.headerData.1230 >
 page.headerData.1230 = COA
 page.headerData.1230 {
+	# this user function is used to merge the single javascript files into a single one
+	# you can disable the feature in the extension manager
+	stdWrap.postUserFunc = tx_pmkshadowbox_cache->main
+
 	1 = TEXT
 	1 {
 		wrap = <script type="text/javascript" src="|"></script>
@@ -169,7 +175,7 @@ temp.shadowBoxInit {
 [compatVersion = 4.2.0]
 page.inlineJS.1230 < temp.shadowBoxInit
 [else]
-page.headerData.1230.10< temp.shadowBoxInit
+page.headerData.1230.10 < temp.shadowBoxInit
 page.headerData.1230.10.wrap2 (
 		<script type="text/javascript">
 			/*<![CDATA[*/
