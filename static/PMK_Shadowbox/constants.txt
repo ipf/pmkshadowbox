@@ -128,7 +128,7 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox/color/c1; type=color; label= Overlay color: The color to use for the modal overlay (in hex). Defaults to "#000000".
 	overlayColor = #000000
 
-	# cat=pmkshadowbox/color/c2; type=color; label= Flah BG color: The default background color to use for Flash movies. Defaults to "#000000".
+	# cat=pmkshadowbox/color/c2; type=color; label= Flash BG color: The default background color to use for Flash movies. Defaults to "#000000".
 	flashBgColor = #000000
 
 }
