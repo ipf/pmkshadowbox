@@ -58,8 +58,8 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox//o0; type=string; label= Initial Options for ImageMap Links: The shadowbox must be enabled in a different way for image maps, because the rel attribute is forbidden for area tags. We handle that by adding an initial shadowbox setup call for image maps. If you don't add some options here, then the defaults are used. You can change the options for each area tag by applying the shadowbox function call (Shadowbox.setup(document.getElementsByTagName('area'), {})) with your new options inside the curly braces before each area tag. Example: "player:'iframe',width:805,height:500"
 	imageMapOptions = 
 
-	# cat=pmkshadowbox//o1; type=options[None=0, Dojo Toolkit=1, Ext=2, MooTools=3, Prototype=4, YUI=5, jQuery=6]; label= JS Adapter: Although Shadowbox can be used in standalone mode, it's just as easy to use Shadowbox with your JavaScript library of choice for a given project. This is accomplished using adapters. An adapter is a small file that tells Shadowbox which methods to call on the underlying framework to achieve some common purpose such as querying the DOM or handling events.
-	adapter = 0
+	# cat=pmkshadowbox//o1; type=options[Base=base, Dojo Toolkit=dojo, Ext=ext, MooTools=mootools, Prototype=prototype, YUI=yui, jQuery=jquery]; label= JS Adapter: Although Shadowbox can be used in standalone mode, it's just as easy to use Shadowbox with your JavaScript library of choice for a given project. This is accomplished using adapters. An adapter is a small file that tells Shadowbox which methods to call on the underlying framework to achieve some common purpose such as querying the DOM or handling events.
+	adapter = base
 
 	# cat=pmkshadowbox//o2; type=short; label= Resizing Duration: The duration (in seconds) of the resizing animations. Defaults to 0.55.
 	resizeDuration = 0.55
@@ -104,7 +104,7 @@ plugin.pmkshadowbox {
 	imgtext.captionField = titleText
 
 	# cat=pmkshadowbox//oj; type=string; label= Players: Shadowbox supports a wide range of media formats. However, you may not need to display all of the supported formats on your page. For this purpose, several media "player" classes have been created that are able to display different types of content. Available "players" (See manual for more info.) : flv, html, iframe, img, qt, swf, wmp.
-	players = flv, html, iframe, img, qt, swf, wmp
+	players = img, swf, flv, qt, wmp, iframe, html
 
 	# cat=pmkshadowbox//ok; type=string; label= Fallback Language: You can define the fallback language of the shadowbox script. The fallback is used if the variable config.language or a language file doesn't exists. Defaults to "en".
 	fallbackLanguage = en
@@ -114,11 +114,11 @@ plugin.pmkshadowbox {
 
 	# File options
 
-	# cat=pmkshadowbox/file/f1; type=file[swf]; label= Videoplayer: The URL of the flash video player. Only needed when displaying Flash video content. Defaults to "EXT:pmkshadowbox/res/flvplayer.swf".
-	flvPlayer = EXT:pmkshadowbox/res/flvplayer.swf
+	# cat=pmkshadowbox/file/f1; type=file[swf]; label= Videoplayer: The URL of the flash video player. Only needed when displaying Flash video content. Defaults to "EXT:pmkshadowbox/res/build/libraries/mediaplayer/player.swf".
+	flvPlayer = EXT:pmkshadowbox/res/build/libraries/mediaplayer/player.swf
 
-	# cat=pmkshadowbox/file/f2; type=options[classic=EXT:pmkshadowbox/res/build/skin/classic,classicCloseOnTop=EXT:pmkshadowbox/res/build/skin/classicCloseOnTop,concept=EXT:pmkshadowbox/res/build/skin/concept,infernal=EXT:pmkshadowbox/res/build/skin/infernal,nova=EXT:pmkshadowbox/res/build/skin/nova]; label= Path to skin folder: A Shadowbox skin is a directory of files that determine what Shadowbox will look like when it is displayed. The "classic" skin is included with the default distribution, and it is hoped that more skins will become available as third-party developers have some time to explore the Shadowbox code. Defaults to "classic" skin.
-	skinPath = EXT:pmkshadowbox/res/build/skin/classic
+	# cat=pmkshadowbox/file/f2; type=options[classic=EXT:pmkshadowbox/res/build/skins/classic,classicCloseOnTop=EXT:pmkshadowbox/res/build/skins/classicCloseOnTop,classicWithSave=EXT:pmkshadowbox/res/build/skins/classicWithSave,dropshadow=EXT:pmkshadowbox/res/build/skins/dropshadow,snow=EXT:pmkshadowbox/res/build/skins/snow]; label= Path to skin folder: A Shadowbox skin is a directory of files that determine what Shadowbox will look like when it is displayed. Defaults to "classic" skin.
+	skinPath = EXT:pmkshadowbox/res/build/skins/classic
 
 	# cat=pmkshadowbox/file/f3; type=file[js]; label= Javascript framework (optional): Enter path/name of javascript framework here, iIf you are using one of the following JavaScript frameworks: YUI, Ext, Prototype, jQuery, MooTools & Dojo Toolkit, as that library must be loaded before shadowbox.
 	jsFramework =
@@ -131,4 +131,16 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox/color/c2; type=color; label= Flash BG color: The default background color to use for Flash movies. Defaults to "#000000".
 	flashBgColor = #000000
 
+
+
+# Additional 3.0b Options
+
+	# cat=pmkshadowbox/enable/eb; type=boolean; label= Auto dimensions: Set this true to automatically set the initialHeight and initialWidth automatically from the configured object's height and width. Defaults to false.
+	autoDimensions = 0
+
+	# cat=pmkshadowbox/enable/ec; type=boolean; label= Show overlay?:	Determines whether the overlay will be shown at all. Defaults to true.
+	showOverlay = 1
+	
+	# cat=pmkshadowbox/enable/ed; type=boolean; label= UseSizzle?: Set this false to disable loading the Sizzle.js CSS selector library. Note that if you choose not to use Sizzle you may not use CSS selectors to set up your links. Defaults to true.
+	useSizzle = 1
 }
