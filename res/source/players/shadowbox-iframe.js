@@ -50,6 +50,7 @@
 
             var html = '<iframe id="' + id + '" name="' + id + '" height="100%" ' +
                 'width="100%" frameborder="0" marginwidth="0" marginheight="0" ' +
+				'style="visibility: hidden;" onload="this.style.visibility = \'visible\';" ' +
                 'scrolling="' + S.getIframeScrollingOption() + '"';
 
             if(S.client.isIE){
