@@ -103,8 +103,8 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox//oh; type=options[titleText,altText,imagecaption]; label= tt_content Caption Field: tt_content field to use as caption inside the Shadowbox.
 	imgtext.captionField = titleText
 
-	# cat=pmkshadowbox//oj; type=string; label= Players: Shadowbox supports a wide range of media formats. However, you may not need to display all of the supported formats on your page. For this purpose, several media "player" classes have been created that are able to display different types of content. Available "players" (See manual for more info.) : flv, html, iframe, img, qt, swf, wmp.
-	players = img, swf, flv, qt, wmp, iframe, html
+	# cat=pmkshadowbox//oj; type=string; label= Players: Shadowbox supports a wide range of media formats. However, you may not need to display all of the supported formats on your page. For this purpose, several media "player" classes have been created that are able to display different types of content. Available "players" (See manual for more info.) : flv, gdoc, html, iframe, img, qt, swf, wmp.
+	players = img, swf, flv, qt, wmp, iframe, html, gdoc
 
 	# cat=pmkshadowbox//ok; type=string; label= Fallback Language: You can define the fallback language of the shadowbox script. The fallback is used if the variable config.language or a language file doesn't exists. Defaults to "en".
 	fallbackLanguage = en
@@ -117,7 +117,7 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox/file/f1; type=file[swf]; label= Videoplayer: The URL of the flash video player. Only needed when displaying Flash video content. Defaults to "EXT:pmkshadowbox/res/build/libraries/mediaplayer/player.swf".
 	flvPlayer = EXT:pmkshadowbox/res/build/libraries/mediaplayer/player.swf
 
-	# cat=pmkshadowbox/file/f2; type=options[classic=EXT:pmkshadowbox/res/build/skins/classic,classicCloseOnTop=EXT:pmkshadowbox/res/build/skins/classicCloseOnTop,classicWithSave=EXT:pmkshadowbox/res/build/skins/classicWithSave,dropshadow=EXT:pmkshadowbox/res/build/skins/dropshadow,snow=EXT:pmkshadowbox/res/build/skins/snow]; label= Path to skin folder: A Shadowbox skin is a directory of files that determine what Shadowbox will look like when it is displayed. Defaults to "classic" skin.
+	# cat=pmkshadowbox/file/f2; type=options[classic=EXT:pmkshadowbox/res/build/skins/classic,classicCloseOnTop=EXT:pmkshadowbox/res/build/skins/classicCloseOnTop,classicWithSave=EXT:pmkshadowbox/res/build/skins/classicWithSave,dropshadow=EXT:pmkshadowbox/res/build/skins/dropshadow,web3=EXT:pmkshadowbox/res/build/skins/web3,snow=EXT:pmkshadowbox/res/build/skins/snow]; label= Path to skin folder: A Shadowbox skin is a directory of files that determine what Shadowbox will look like when it is displayed. Defaults to "classic" skin.
 	skinPath = EXT:pmkshadowbox/res/build/skins/classic
 
 	# cat=pmkshadowbox/file/f3; type=file[js]; label= Javascript framework (optional): Enter path/name of javascript framework here, iIf you are using one of the following JavaScript frameworks: YUI, Ext, Prototype, jQuery, MooTools & Dojo Toolkit, as that library must be loaded before shadowbox.
