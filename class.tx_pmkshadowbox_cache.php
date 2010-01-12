@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2009 Stefan Galinski (stefan.galinski@gmail.com)
+*  (c) 2010 Stefan Galinski (stefan.galinski@gmail.com)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -43,19 +43,29 @@ if (!class_exists(JSMin)) {
  * @author Stefan Galinski <stefan.galinski@gmail.com>
  */
 class tx_pmkshadowbox_cache {
-	/** @var array $extConfig holds the extension configuration */
-	private $extConfig = array();
-
-	/** @var array $players hold the available shadowbox player scripts */
-	private $players = array();
-
-	/** @var string $tempDirectory contains the temporary directory */
-	private $tempDirectory = '';
+	/**
+	 * holds the extension configuration
+	 * 
+	 * @var array holds
+	 */
+	protected $extConfig = array();
 
 	/**
-	 * CONSTRUCTOR
+	 * hold the available shadowbox player scripts
 	 *
-	 * Initialites some class variables...
+	 * @var array
+	 */
+	protected $players = array();
+
+	/**
+	 * contains the temporary directory
+	 *  
+	 * @var string
+	 */
+	protected $tempDirectory = '';
+
+	/**
+	 * Initializes some class variables...
 	 *
 	 * @return void
 	 */
@@ -72,7 +82,8 @@ class tx_pmkshadowbox_cache {
 			'shadowbox-img.js',
 			'shadowbox-qt.js',
 			'shadowbox-swf.js',
-			'shadowbox-wmp.js'
+			'shadowbox-wmp.js',
+			'shadowbox-gdoc.js'
 		);
 	}
 
@@ -251,11 +262,19 @@ class tx_pmkshadowbox_cache {
 		return @file_exists($this->cObj->stdWrap($conf['file'],$conf['file.']));
 	}
 
-	// @todo to be documented
+	/**
+	 * Calculates and returns the root path to the shadowbox scripts
+	 * 
+	 * @return string shadowbox root directory
+	 */
 	public function getPathToShadowboxRoot() {
 		return t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST') . '/' .
 			str_replace(PATH_site, '', t3lib_extMgm::extPath('pmkshadowbox') . 'res/build/');
 	}
+}
+
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/pmkshadowbox/class.tx_pmkshadowbox_cache.php'])  {
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/pmkshadowbox/class.tx_pmkshadowbox_cache.php']);
 }
 
 ?>
