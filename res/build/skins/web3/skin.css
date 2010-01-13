@@ -68,6 +68,7 @@ body > #sb-container {
   box-shadow: 10px 10px 15px #111;
   -webkit-box-shadow: 10px 10px 15px #111;
   -moz-box-shadow: 10px 10px 15px #111;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color=#111111, direction=135, strength=10);
 }
 /*____________________________________________________________________  body  */
 #sb-body {
