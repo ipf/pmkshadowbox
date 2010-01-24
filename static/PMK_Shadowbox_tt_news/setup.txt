@@ -25,12 +25,6 @@ temp.imageLinkWrap {
 	}
 }
 
-[globalVar = LIT:1 = {$plugin.pmkshadowbox.tt_news.enableSplit}]
-# include the php script
-#includeLibs.imageMarkerFunc = EXT:pmkshadowbox/tt_news_imageMarkerFunc.php
-#plugin.tt_news.imageMarkerFunc = user_imageMarkerFunc
-[GLOBAL]
-
 [globalVar = LIT:1 = {$plugin.pmkshadowbox.tt_news.displaySingle.shadowboxEnable}]
 # Change "imageLinkWrap" for the "displaySingle" object of tt_news
 plugin.tt_news.displaySingle.image.imageLinkWrap >
