@@ -32,7 +32,7 @@
  * @author Stefan Galinski <stefan.galinski@gmail.com>
  */
 
-if (!class_exists(JSMin)) {
+if (!class_exists('JSMin', false)) {
 	/** Minify: JSMin */
 	require_once(PATH_typo3 . 'contrib/jsmin/jsmin.php');
 }
