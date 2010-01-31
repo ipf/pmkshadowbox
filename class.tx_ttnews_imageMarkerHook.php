@@ -37,7 +37,7 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
 class tx_ttnews_imageMarker extends tslib_pibase {
 	var $prefixId = "tx_ttnews_imageMarkerHook";		// Same as class name
 	var $scriptRelPath = "class.tx_ttnews_imageMarkerHook.php";	// Path to this script relative to the extension dir.
-	var $extKey = "ttnews";	// The extension key.
+	var $extKey = "tt_news";	// The extension key.
 
 	function extraItemMarkerProcessor($parentMarkerArray, $row, $lConf, $tt_news) {
 		//Initiate language
@@ -107,10 +107,10 @@ class tx_ttnews_imageMarker extends tslib_pibase {
 					$lConf['image.']['altText'] = $imgsAltTexts[$cc];
 					$lConf['image.']['titleText'] = $imgsTitleTexts[$cc];
 					$lConf['image.']['file'] = 'uploads/pics/' . $val;
+					$GLOBALS['TSFE']->register['IMAGE_NUM_CURRENT'] = $cc;
 
 					$theImgCode .= $tt_news->local_cObj->IMAGE($lConf['image.']) . $tt_news->local_cObj->stdWrap($imgsCaptions[$cc], $lConf['caption_stdWrap.']);
 				}
-				$GLOBALS['TSFE']->register['IMAGE_NUM_CURRENT'] = $cc;
 				$cc++;
 			}
 
@@ -221,8 +221,8 @@ class tx_ttnews_imageMarker extends tslib_pibase {
 					$theImgCode .= $imgHtml;
 				}
 			}
-			$GLOBALS['TSFE']->register['IMAGE_NUM_CURRENT'] = $cc;
 			$cc++;
+			$GLOBALS['TSFE']->register['IMAGE_NUM_CURRENT'] = $cc;
 		}
 
 		if ($cc) {
