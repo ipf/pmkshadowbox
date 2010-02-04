@@ -72,7 +72,7 @@ class tx_pmkshadowbox_cache {
 	public function __construct() {
 		$this->tempDirectory = 'typo3temp/pmkshadowbox/';
 		if (!is_dir(PATH_site . $this->tempDirectory)) {
-			mkdir(PATH_site . $this->tempDirectory);
+			t3lib_div::mkdir(PATH_site . $this->tempDirectory);
 		}
 
 		$this->players = array(
