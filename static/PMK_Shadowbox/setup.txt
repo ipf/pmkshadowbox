@@ -95,8 +95,8 @@ page.jsFooterInline.1230 {
 	}
 
 		# image map initialisation
-	20 = TEXT
-	20 {
+	40 = TEXT
+	40 {
 		value (
 			function shadowBoxSetup() {
 				var shadowBoxElements = document.getElementsByTagName('area');
