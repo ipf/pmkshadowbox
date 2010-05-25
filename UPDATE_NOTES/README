@@ -1,0 +1,58 @@
+### README ###
+
+The generation of the shadowbox script has changed dramatically, because the script is build on
+runtime now. The configuration is very easy and mostly backwards compatible. See the notes
+below for a list of specific configuration changes. The build functionality is completely
+convered by unit tests!
+
+## General Notes:
+
+- Dropped support for TYPO3 below 4.3, because this should be a new major release (3.0)
+- Some default values changed to fit the new shadowbox defaults
+- tt_products is completely untested
+
+## Values for the "iframeScrolling" configuration option
+
+- yes -> always show the scrollbars
+- no -> never show the scrollbars
+- auto -> autodetection if the scrollbars are needed
+- dynamic -> scrollbars will be enabled/disabled while resizing
+  -> only useful in some cases and far way from perfection
+- dynamic_noScrollFallback -> same as dynamic, but IE6/7 won't display the scrollbars anymore
+
+## Added non-shadowbox options:
+
+- useSizzle moved from shadowbox to non-shadowbox option
+- players moved from shadowbox to non-shadowbox option
+- adapter moved from shadowbox to non-shadowbox option
+- preserveAspectWhileResizing - enable old resizing behaviour by default (the new one is extremely annoying)
+- skinModificationDirectory -> more flexible approach than the skinPath variable
+- flashPlayer -> option to change the default flash player
+- flashExpressInstallScript -> option to change the default flash express install script
+
+## Removed non-shadowbox options:
+
+- jsFramework -> The user is responsible to include his framework himself now! An administrator
+  should know how he can fulfill this condition.
+- skipSetup -> moved to the shadowbox option with the same name (but reversed the default)
+- iframeScrolling -> can be used as a rel attribute only now
+  -> the global solution didn't made much sense
+- skinPath -> replaced by the more flexible skinModification configuration variable
+
+## Removed shadowbox configuration options:
+
+- flvPlayer -> autoloaded by naming convention (player.swf inside the build path)
+- flashBgColor -> replaced by the more general flashParams option
+- autoDimensions -> no replacement
+- handleException -> no replacement
+- gdoc player doesn't exists anymore
+
+## Added shadowbox configuration options:
+
+Some were mentioned with background informations already before this section.
+
+- troubleElements
+- flashVars
+- flashParams
+- flashVersion
+- skipSetup

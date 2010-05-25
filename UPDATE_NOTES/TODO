@@ -1,0 +1,12 @@
+### TODO ###
+
+Any issues that are still open after the release should be moved to forge!
+
+Reintegration:
+- reintegration of the different skins
+  - classicWithSave
+  - dropShadow
+- savefile.php integration
+
+Others:
+- rewrite/update of the manual
