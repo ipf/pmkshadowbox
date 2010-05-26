@@ -100,12 +100,14 @@ S.iframe.prototype = {
 			iframeInstance = this;
 		}
 
-		var win = S.isIE ? get(iframeInstance.id).contentWindow : window.frames[iframeInstance.id];
-		if (win.document.body === null) {
-			window.setTimeout(function(){iframeInstance.triggerResize(iframeInstance)}, 10);
-		} else {
-			var dims = setDimensions(iframeInstance.height, iframeInstance.width);
-			iframeInstance.onWindowResize(dims);
+		var win = window.frames[iframeInstance.id];
+		if (typeof win !== 'undefined') {
+			if (win.document.body === null) {
+				window.setTimeout(function(){iframeInstance.triggerResize(iframeInstance)}, 10);
+			} else {
+				var dims = setDimensions(iframeInstance.height, iframeInstance.width);
+				iframeInstance.onWindowResize(dims);
+			}
 		}
 	},
 
