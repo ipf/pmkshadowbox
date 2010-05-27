@@ -6,6 +6,8 @@ Reintegration:
 - reintegration of the different skins
   - classicWithSave
   - dropShadow
+  - closeOnTop (DONE)
+  - web3 (DONE)
 - savefile.php integration
 
 Others:
