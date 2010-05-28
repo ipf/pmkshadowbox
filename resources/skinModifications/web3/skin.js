@@ -64,10 +64,10 @@ S.skin.markup = "" +
 					'<div style="clear:both"></div>' +
 	                '<div id="sb-counter"></div>' +
 	                '<div id="sb-nav">' +
-	                    '<a id="sb-nav-next" title="{next}" onclick="Shadowbox.next()"></a>' +
+	                    '<a id="sb-nav-previous" title="{previous}" onclick="Shadowbox.previous()"></a>' +
 	                    '<a id="sb-nav-play" title="{play}" onclick="Shadowbox.play()"></a>' +
 	                    '<a id="sb-nav-pause" title="{pause}" onclick="Shadowbox.pause()"></a>' +
-	                    '<a id="sb-nav-previous" title="{previous}" onclick="Shadowbox.previous()"></a>' +
+	                    '<a id="sb-nav-next" title="{next}" onclick="Shadowbox.next()"></a>' +
 	                '</div>' +
 	            '</div>' +
 	        '</div>' +
