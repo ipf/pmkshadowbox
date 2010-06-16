@@ -343,7 +343,10 @@ class tx_pmkshadowbox_build {
 			$scriptContent .= $content;
 		}
 
-		if (!t3lib_extMgm::isLoaded('scriptmerger')) {
+			// the scriptmerger check prevents the minification of the script twice!
+		if ($this->extensionConfiguration['enableJavascriptMinification'] === '1' &&
+			!t3lib_extMgm::isLoaded('scriptmerger')
+		) {
 			$scriptContent = JSMin::minify($scriptContent);
 		}
 
