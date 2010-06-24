@@ -1,8 +1,14 @@
+[compatVersion = 4.3.0]
+# classes is loaded using ext_autoload.php
+[else]
+includeLibs.shadowboxCache = EXT:pmkshadowbox/classes/class.tx_pmkshadowbox_cache.php
+[end]
+
 	# Shadowbox Build Generation
 	#
 	# Note: This header data part must always executed before the other ones. Otherwise
 	# the register value can't be accessed and we are missing the build path information.
-includeLibs.shadowboxCache = EXT:pmkshadowbox/classes/class.tx_pmkshadowbox_build.php
+includeLibs.shadowboxBuild = EXT:pmkshadowbox/classes/class.tx_pmkshadowbox_build.php
 page.headerData.1230 = LOAD_REGISTER
 page.headerData.1230 {
 	buildDirectory {
@@ -33,8 +39,20 @@ page.headerData.1232 {
 }
 
 	# Generate inline initialisation code
+[compatVersion = 4.3.0]
+	# 4.3+ Has a jsFooterInline option
 page.jsFooterInline.1230 = COA
 page.jsFooterInline.1230 {
+[else]
+	# But older versions don't, so her we just create a page object 99999.
+page.99999 = COA
+page.99999 {
+	wrap (
+		<script type="text/javascript">
+		|
+		</script>
+	)
+[end]
 	10 = TEXT
 	10 {
 		value (
