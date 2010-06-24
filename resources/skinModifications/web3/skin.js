@@ -1,7 +1,7 @@
 /**
  * Just another nice skin with no title/info bar animations
  *
- * @author Peter Klein
+ * @author Peter Klein <pmk@io.dk>
  * @author Stefan Galinski <stefan.galinski@gmail.com>
  */
 

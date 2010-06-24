@@ -22,4 +22,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['additionalBackendItems']['cacheAction
 $TYPO3_CONF_VARS['BE']['AJAX']['pmkshadowbox::clearShadowboxBuilds'] =
 	'EXT:pmkshadowbox/classes/class.tx_pmkshadowbox_cache.php:&tx_pmkshadowbox_cache->clear';
 
+	// Register eID script for saving and printing SB content.
+$TYPO3_CONF_VARS['FE']['eID_include']['pmkshadowbox'] = 'EXT:pmkshadowbox/classes/class.tx_pmkshadowbox_printsave.php';
 ?>

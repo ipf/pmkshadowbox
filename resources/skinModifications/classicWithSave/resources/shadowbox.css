@@ -1,121 +1,108 @@
 /**
- * The default CSS for Shadowbox.
- *
- * This file is part of Shadowbox.
- *
- * Shadowbox is an online media viewer application that supports all of the
- * web's most popular media publishing formats. Shadowbox is written entirely
- * in JavaScript and CSS and is highly customizable. Using Shadowbox, website
- * authors can showcase a wide assortment of media in all major browsers without
- * navigating users away from the linking page.
- *
- * You should have received a license with this distribution explaining the terms
- * under which Shadowbox may be used. If you did not, you may obtain a copy of the
- * license at http://shadowbox-js.com/LICENSE
- *
- * @author      Michael J. I. Jackson <michael@mjijackson.com>
- * @copyright   2007-2009 Michael J. I. Jackson
- * @version     SVN: $Id: shadowbox.css 20M 2009-04-23 13:08:21Z (local) $
+ * CSS styles for Shadowbox.
  */
 
-/*_____________________________________________  container, overlay, & wrapper  */
-#sb-container, #sb-wrapper {
-  text-align: left; /* reset left alignment */
+/* typography */
+#sb-title-inner, #sb-info-inner, #sb-loading-inner, div.sb-message {
+  font-family: "HelveticaNeue-Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 200;
+  color: #fff;
 }
-#sb-container, #sb-overlay {
-  position: absolute;
+
+/* container, overlay, & wrapper */
+#sb-container {
+  position: fixed;
+  margin: 0;
+  padding: 0;
   top: 0;
   left: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-#sb-container {
-  height: 100%;
-  display: none;
-  visibility: hidden;
   z-index: 999;
-}
-body > #sb-container {
-  /* use position:fixed in modern browsers */
-  position: fixed;
+  text-align: left;
+  visibility: hidden;
+  display: none;
 }
 #sb-overlay {
-  /* needed in IE6 where sb-container uses position:absolute */
-  height: expression(document.documentElement.clientHeight + 'px');
-}
-#sb-container > #sb-overlay {
-  /* use for sb-container position:fixed */
-  height: 100%;
-}
-
-/*_________________________________________________________________  wrapper  */
-#sb-wrapper {
   position: relative;
+  height: 100%;
+  width: 100%;
 }
-#sb-wrapper img {
-  border: none;
+#sb-wrapper {
+  position: absolute;
+  visibility: hidden;
+  width: 100px; /* explicit width helps offset children calculate their width */
+}
+#sb-wrapper-inner {
+  position: relative;
+  border: 1px solid #303030;
+  overflow: hidden;
+  height: 100px; /* explicit height helps offset children calculate their height */
 }
 
-/*____________________________________________________________________  body  */
+/* body */
 #sb-body {
   position: relative;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid #303030;
-}
-#sb-body-inner {
-  position: relative;
   height: 100%;
 }
-#sb-content.html {
+#sb-body-inner {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+#sb-player.html {
   height: 100%;
   overflow: auto; /* make html content scrollable */
 }
+#sb-body img {
+  border: none;
+}
 
-/*_________________________________________________________________  loading  */
+/* loading */
 #sb-loading {
-  position: absolute;
-  top: 0;
-  width: 100%;
+  position: relative;
   height: 100%;
+}
+#sb-loading-inner {
+  position: absolute;
+  font-size: 14px;
+  line-height: 24px;
+  height: 24px;
+  top: 50%;
+  margin-top: -12px;
+  width: 100%;
   text-align: center;
-  padding-top: 10px;
+}
+#sb-loading-inner span {
+  background: url(loading.gif) no-repeat;
+  padding-left: 34px;
+  display: inline-block;
 }
 #sb-body, #sb-loading {
   background-color: #060606; /* should match loading image background color */
 }
 
-/*____________________________________________________________  title & info  */
+/* title & info */
 #sb-title, #sb-info {
   position: relative;
   margin: 0; /* these must have no vertical margin or padding */
   padding: 0;
   overflow: hidden;
 }
-#sb-title-inner, #sb-info-inner {
-  position: relative;
-  font-family: 'Lucida Grande', Tahoma, sans-serif;
-  line-height: 16px;
-}
 #sb-title, #sb-title-inner {
   height: 26px;
+  line-height: 26px;
 }
 #sb-title-inner {
   font-size: 16px;
-  padding: 5px 0;
-  color: #fff;
 }
 #sb-info, #sb-info-inner {
   height: 20px;
+  line-height: 20px;
 }
 #sb-info-inner {
   font-size: 12px;
-  color: #fff;
 }
 
-/*_____________________________________________________________________  nav  */
+/* nav */
 #sb-nav {
   float: right;
   height: 16px;
@@ -129,39 +116,32 @@ body > #sb-container {
   width: 16px;
   margin-left: 3px;
   cursor: pointer;
+  background-repeat: no-repeat;
 }
 #sb-nav-close {
-  background-image: url(resources/close.png);
-  background-repeat: no-repeat;
+  background-image: url(close.png);
 }
 #sb-nav-next {
-  background-image: url(resources/next.png);
-  background-repeat: no-repeat;
+  background-image: url(next.png);
 }
 #sb-nav-previous {
-  background-image: url(resources/previous.png);
-  background-repeat: no-repeat;
+  background-image: url(previous.png);
 }
 #sb-nav-play {
-  background-image: url(resources/play.png);
-  background-repeat: no-repeat;
+  background-image: url(play.png);
 }
 #sb-nav-pause {
-  background-image: url(resources/pause.png);
-  background-repeat: no-repeat;
+  background-image: url(pause.png);
 }
 #sb-nav-save {
-  background-image: url(resources/save.png);
-  background-repeat: no-repeat;
+  background-image: url(save.png);
 }
 #sb-nav-print {
-  background-image: url(resources/print.png);
-  background-repeat: no-repeat;
+  background-image: url(print.png);
 }
-/*_________________________________________________________________  counter  */
+/* counter */
 #sb-counter {
   float: left;
-  padding: 2px 0;
   width: 45%;
 }
 #sb-counter a {
@@ -174,9 +154,8 @@ body > #sb-container {
   text-decoration: underline;
 }
 
-/*________________________________________________________________  messages  */
+/* messages */
 div.sb-message {
-  font-family: 'Lucida Grande', Tahoma, sans-serif;
   font-size: 12px;
   padding: 10px;
   text-align: center;

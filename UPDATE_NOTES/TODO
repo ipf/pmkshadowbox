@@ -4,11 +4,12 @@ Any issues that are still open after the release should be moved to forge!
 
 Reintegration:
 - reintegration of the different skins
-  - classicWithSave
+  - classicWithSave (DONE)
   - dropShadow
   - closeOnTop (DONE)
   - web3 (DONE)
-- savefile.php integration
+- savefile.php integration (DONE - Rewritten as an eID based class "class.tx_pmkshadowbox_printsave.php")
 
 Others:
+- re-enable support for older TYPO3 versions below 4.3 (DONE)
 - rewrite/update of the manual
