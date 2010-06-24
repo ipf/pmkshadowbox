@@ -5,7 +5,7 @@ Any issues that are still open after the release should be moved to forge!
 Reintegration:
 - reintegration of the different skins
   - classicWithSave (DONE)
-  - dropShadow
+  - dropShadow (DONE)
   - closeOnTop (DONE)
   - web3 (DONE)
 - savefile.php integration (DONE - Rewritten as an eID based class "class.tx_pmkshadowbox_printsave.php")
