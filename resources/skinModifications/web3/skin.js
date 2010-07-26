@@ -42,6 +42,7 @@ function toggleLoading(on, callback) {
     }
 }
 
+pngIds = [];
 S.skin.markup = "" +
 '<div id="sb-container">' +
     '<div id="sb-overlay"></div>' +
