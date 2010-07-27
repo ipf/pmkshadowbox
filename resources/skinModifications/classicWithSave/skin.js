@@ -7,6 +7,48 @@
  * @author Peter Klein <pmk@io.dk>
  */
 
+function toggleLoading(on, callback) {
+    var loading = get("sb-loading"),
+        playerName = S.getCurrent().player,
+		save = get("sb-nav-save"),
+		print = get("sb-nav-print"),
+        anim = (playerName == "img" || playerName == "html"); // fade on images & html
+
+    save.style.display = (playerName != "img") ? "none" : "";
+    print.style.display = (playerName != "img" && playerName != "iframe") ? "none" : "";
+
+
+    if (on) {
+        S.setOpacity(loading, 0);
+        loading.style.display = "block";
+
+        var wrapped = function() {
+            S.clearOpacity(loading);
+            if (callback)
+                callback();
+        }
+
+        if (anim) {
+            animate(loading, "opacity", 1, S.options.fadeDuration, wrapped);
+        } else {
+            wrapped();
+        }
+    } else {
+        var wrapped = function() {
+            loading.style.display = "none";
+            S.clearOpacity(loading);
+            if (callback)
+                callback();
+        }
+
+        if (anim) {
+            animate(loading, "opacity", 0, S.options.fadeDuration, wrapped);
+        } else {
+            wrapped();
+        }
+    }
+}
+
 S.skin.markup = "" +
 '<div id="sb-container">' +
     '<div id="sb-overlay"></div>' +
@@ -43,13 +85,19 @@ S.skin.markup = "" +
 
 
 S.print = function(){
-	var url = 'index.php?eID=pmkshadowbox&mode=print&image='+Shadowbox.getCurrent()['content'];
+	var url = S.getCurrent()["content"];
+	if (S.getCurrent().player == "img") {
+		url = "index.php?eID=pmkshadowbox&mode=print&image=" + url;
+	}
+	else {
+		url = url + (url.indexOf("?")>0 ? "&" : "?") + "print=1";
+	}
 	window.open(url);
 	return false;
 };
 
 S.setSave = function(){
-	var sv = document.getElementById('sb-nav-save');
-	if (sv) sv.href = 'index.php?eID=pmkshadowbox&mode=save&image='+Shadowbox.getCurrent()['content'];
+	var sv = get("sb-nav-save");
+	if (sv) sv.href = "index.php?eID=pmkshadowbox&mode=save&image=" + S.getCurrent()["content"];
 }
 

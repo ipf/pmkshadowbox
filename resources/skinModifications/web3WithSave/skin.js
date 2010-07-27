@@ -20,12 +20,11 @@ function hideBars(anim, callback) {
 function toggleLoading(on, callback) {
     var loading = get("sb-loading"),
         playerName = S.getCurrent().player,
+		save = get("sb-nav-save"),
+		print = get("sb-nav-print"),
         anim = (playerName == "img" || playerName == "html"); // fade on images & html
 
-	var save = get('sb-nav-save');
     save.style.display = (playerName != "img") ? "none" : "";
-
-	var print = get('sb-nav-print');
     print.style.display = (playerName != "img" && playerName != "iframe") ? "none" : "";
 
     if (on) {
