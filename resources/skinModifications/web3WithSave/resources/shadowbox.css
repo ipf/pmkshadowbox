@@ -77,15 +77,15 @@
 #sb-loading-inner {
   position: absolute;
   font-size: 14px;
-  line-height: 24px;
-  height: 24px;
+  line-height: 32px;
+  height: 32px;
   top: 50%;
   margin-top: -12px;
   width: 100%;
   text-align: center;
 }
 #sb-loading-inner span {
-  background: url(resources/loading.gif) no-repeat;
+  background: url(loading.gif) no-repeat;
   padding-left: 34px;
   display: inline-block;
 }

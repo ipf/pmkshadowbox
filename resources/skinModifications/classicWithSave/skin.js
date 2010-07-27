@@ -90,7 +90,7 @@ S.print = function(){
 		url = "index.php?eID=pmkshadowbox&mode=print&image=" + url;
 	}
 	else {
-		url = url + (url.indexOf("?")>0 ? "&" : "?") + "print=1";
+		url = url + (url.indexOf("?")>0 ? "&" : "?") + "print=2";
 	}
 	window.open(url);
 	return false;

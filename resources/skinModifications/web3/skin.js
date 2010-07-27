@@ -23,9 +23,16 @@ function toggleLoading(on, callback) {
         anim = (playerName == "img" || playerName == "html"); // fade on images & html
 
     if (on) {
-		if (callback) {
-			callback();
-		}
+        var wrapped = function() {
+            S.clearOpacity(loading);
+            if (callback)
+                callback();
+        }
+        if (anim) {
+            animate(loading, "opacity", 1, S.options.fadeDuration, wrapped);
+        } else {
+            wrapped();
+        }
     } else {
         var wrapped = function() {
             loading.style.display = "none";

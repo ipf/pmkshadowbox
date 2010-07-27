@@ -28,9 +28,19 @@ function toggleLoading(on, callback) {
     print.style.display = (playerName != "img" && playerName != "iframe") ? "none" : "";
 
     if (on) {
-		if (callback) {
-			callback();
-		}
+        S.setOpacity(loading, 0);
+        loading.style.display = "block";
+
+        var wrapped = function() {
+            S.clearOpacity(loading);
+            if (callback)
+                callback();
+        }
+        if (anim) {
+            animate(loading, "opacity", 1, S.options.fadeDuration, wrapped);
+        } else {
+            wrapped();
+        }
     } else {
         var wrapped = function() {
             loading.style.display = "none";
@@ -89,7 +99,7 @@ S.print = function(){
 		url = "index.php?eID=pmkshadowbox&mode=print&image=" + url;
 	}
 	else {
-		url = url + (url.indexOf("?")>0 ? "&" : "?") + "print=1";
+		url = url + (url.indexOf("?")>0 ? "&" : "?") + "print=2";
 	}
 	window.open(url);
 	return false;

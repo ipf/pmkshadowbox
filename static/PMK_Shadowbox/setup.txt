@@ -38,21 +38,8 @@ page.headerData.1232 {
 	dataWrap = <link type="text/css" media="all" rel="stylesheet" href="{TSFE:absRefPrefix}{register:buildDirectory}shadowbox.css" />
 }
 
-	# Generate inline initialisation code
-[compatVersion = 4.3.0]
-	# 4.3+ Has a jsFooterInline option
-page.jsFooterInline.1230 = COA
-page.jsFooterInline.1230 {
-[else]
-	# But older versions don't, so her we just create a page object 99999.
-page.99999 = COA
-page.99999 {
-	wrap (
-		<script type="text/javascript">
-		|
-		</script>
-	)
-[end]
+temp.shadowboxinit = COA
+temp.shadowboxinit {
 	10 = TEXT
 	10 {
 		value (
@@ -133,3 +120,52 @@ page.99999 {
 		override.if.isTrue = {$plugin.pmkshadowbox.skipImageMapSetup}
 	}
 }
+
+page.99999 = COA
+page.99999 {
+	10 < temp.shadowboxinit
+	wrap (
+		<script type="text/javascript">
+		|
+		</script>
+	)
+}
+
+/*
+	# Generate inline initialisation code
+[compatVersion = 4.3.0]
+	# 4.3+ Has a jsFooterInline option
+	# This ends up as EXTERNAL JS, Not inline.
+page.jsFooterInline.1230 < temp.shadowboxinit
+[else]
+	# But older versions don't, so her we just create a page object 99999.
+page.99999 = COA
+page.99999 {
+	10 < temp.shadowboxinit
+	wrap (
+		<script type="text/javascript">
+		|
+		</script>
+	)
+}
+[end]
+*/
+
+[globalVar = GP:print = 2]
+# Code for printing Shadowbox HTML (iframe) content.
+page.headerData.1232 = TEXT
+page.headerData.1232.value (
+	<script type="text/javascript">
+	function printit(){
+		try {
+			window.print();
+		}
+		catch(err) {
+			return;
+		}
+		window.close();
+	}
+	window.onload = printit;
+	</script>
+)
+[end]
