@@ -1,6 +1,5 @@
-[compatVersion = 4.3.0]
-# classes is loaded using ext_autoload.php
-[else]
+	# autoloading was introduced in 4.3.0
+[compatVersion < 4.3.0]
 includeLibs.shadowboxCache = EXT:pmkshadowbox/classes/class.tx_pmkshadowbox_cache.php
 [end]
 
@@ -38,11 +37,15 @@ page.headerData.1232 {
 	dataWrap = <link type="text/css" media="all" rel="stylesheet" href="{TSFE:absRefPrefix}{register:buildDirectory}shadowbox.css" />
 }
 
+	# We should use jsFooterInline if we drop support for version lesser than 4.3
+	# Note: The javascript is loaded in an external file if you set the related cleanup option in your TS config.
 page.headerData.1233 = COA
 page.headerData.1233 {
 	wrap (
 		<script type="text/javascript">
+		/* <![CDATA[ */
 		|
+		/* ]]> */
 		</script>
 	)
 
@@ -92,10 +95,7 @@ page.headerData.1233 {
 	20 {
 		dataWrap = Shadowbox.path = '{TSFE:absRefPrefix}{register:buildDirectory}';
 	}
-}
 
-lib.shadowboxinit = COA
-lib.shadowboxinit {
 	30 = TEXT
 	30 {
 		value (
@@ -129,52 +129,28 @@ lib.shadowboxinit {
 	}
 }
 
-page.99999 = COA
-page.99999 {
-	10 < lib.shadowboxinit
-
-	wrap (
-		<script type="text/javascript">
-		|
-		</script>
-	)
-}
-
-/*
-	# Generate inline initialisation code
-[compatVersion = 4.3.0]
-	# 4.3+ Has a jsFooterInline option
-	# This ends up as EXTERNAL JS, Not inline.
-page.jsFooterInline.1230 < lib.shadowboxinit
-[else]
-	# But older versions don't, so her we just create a page object 99999.
-page.99999 = COA
-page.99999 {
-	10 < lib.shadowboxinit
-	wrap (
-		<script type="text/javascript">
-		|
-		</script>
-	)
-}
-[end]
-*/
-
+	# Code for printing shadowbox HTML (iframe) content.
 [globalVar = GP:print = 2]
-# Code for printing Shadowbox HTML (iframe) content.
-page.headerData.1232 = TEXT
-page.headerData.1232.value (
+page.headerData.1229 = TEXT
+page.headerData.1229.value (
 	<script type="text/javascript">
-	function printit(){
+	/* <![CDATA[ */
+	function printIframeContent() {
 		try {
 			window.print();
-		}
-		catch(err) {
+		} catch (err) {
 			return;
 		}
+
 		window.close();
 	}
-	window.onload = printit;
+
+	if (window.addEventListener) {
+		window.addEventListener('load', printIframeContent, false);
+	} else if (window.attachEvent) {
+		window.attachEvent('onload', printIframeContent);
+	}
+	/* ]]> */
 	</script>
 )
-[end]
+[global]
