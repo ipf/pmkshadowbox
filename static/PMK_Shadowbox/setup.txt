@@ -38,8 +38,14 @@ page.headerData.1232 {
 	dataWrap = <link type="text/css" media="all" rel="stylesheet" href="{TSFE:absRefPrefix}{register:buildDirectory}shadowbox.css" />
 }
 
-temp.shadowboxinit = COA
-temp.shadowboxinit {
+page.headerData.1233 = COA
+page.headerData.1233 {
+	wrap (
+		<script type="text/javascript">
+		|
+		</script>
+	)
+
 	10 = TEXT
 	10 {
 		value (
@@ -78,19 +84,21 @@ temp.shadowboxinit {
 					viewportPadding: {$plugin.pmkshadowbox.viewportPadding},
 					preserveAspectWhileResizing: {$plugin.pmkshadowbox.preserveAspectWhileResizing}
 				});
-			)
+			}
+		)
 	}
 
 	20 = TEXT
 	20 {
 		dataWrap = Shadowbox.path = '{TSFE:absRefPrefix}{register:buildDirectory}';
 	}
+}
 
+lib.shadowboxinit = COA
+lib.shadowboxinit {
 	30 = TEXT
 	30 {
 		value (
-			}
-
 			if (window.addEventListener) {
 				window.addEventListener('load', shadowBoxInit, false);
 			} else if (window.attachEvent) {
@@ -123,7 +131,8 @@ temp.shadowboxinit {
 
 page.99999 = COA
 page.99999 {
-	10 < temp.shadowboxinit
+	10 < lib.shadowboxinit
+
 	wrap (
 		<script type="text/javascript">
 		|
@@ -136,12 +145,12 @@ page.99999 {
 [compatVersion = 4.3.0]
 	# 4.3+ Has a jsFooterInline option
 	# This ends up as EXTERNAL JS, Not inline.
-page.jsFooterInline.1230 < temp.shadowboxinit
+page.jsFooterInline.1230 < lib.shadowboxinit
 [else]
 	# But older versions don't, so her we just create a page object 99999.
 page.99999 = COA
 page.99999 {
-	10 < temp.shadowboxinit
+	10 < lib.shadowboxinit
 	wrap (
 		<script type="text/javascript">
 		|

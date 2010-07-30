@@ -23,7 +23,7 @@ function toggleLoading(on, callback) {
 		save = get("sb-nav-save"),
 		print = get("sb-nav-print"),
         anim = (playerName == "img" || playerName == "html"); // fade on images & html
-
+alert(playerName);
     save.style.display = (playerName != "img") ? "none" : "";
     print.style.display = (playerName != "img" && playerName != "iframe") ? "none" : "";
 
