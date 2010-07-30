@@ -5,7 +5,7 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox/enable/e2; type=boolean; label= Enable fade animations?: Set this false to disable all fading animations. Defaults to true.
 	animateFade = 1
 
-	# cat=pmkshadowbox/enable/e3; type=boolean; label= Disable modal?: Set this true to prevent mouse clicks on the overlay from closing Shadowbox. Defaults to false.
+	# cat=pmkshadowbox/enable/e3; type=boolean; label= Enable modal?: Set this true to prevent mouse clicks on the overlay from closing Shadowbox. Defaults to false.
 	modal = 0
 
 	# cat=pmkshadowbox/enable/e3; type=boolean; label= Autoplay movies?: Set this false to disable automatically playing movies when they are loaded. Defaults to true.
@@ -40,7 +40,7 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox/enable/e11; type=boolean; label= Preserve Ascpect While Resizing?: Set this true to enable the preserving of the current aspect while resizing. Defaults to false.
 	preserveAspectWhileResizing = 0
 
-	# cat=pmkshadowbox/enable/ed; type=boolean; label= UseSizzle?: Set this false to disable loading the Sizzle.js CSS selector library. Note that if you choose not to use Sizzle you may not use CSS selectors to set up your links. Defaults to true.
+	# cat=pmkshadowbox/enable/ed; type=boolean; label= Use Sizzle?: Set this false to disable loading the Sizzle.js CSS selector library. Note that if you choose not to use Sizzle you may not use CSS selectors to set up your links. Defaults to true.
 	useSizzle = 1
 
 
@@ -76,7 +76,7 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox//o6; type=options[wh,hw,sync]; label= Animation sequence: The animation sequence to use when resizing Shadowbox. May be either "wh" (width first, then height), "hw" (height first, then width), or "sync" (both simultaneously). Defaults to "sync".
 	animSequence = sync
 
-	# cat=pmkshadowbox//o7; type=options[default,skip]; label= Counter Type: 	The mode to use for the gallery counter. May be either "default" or "skip". The default counter is a simple "1 of 5" message. The skip counter displays a separate link to each piece in the gallery, enabling quick navigation in large galleries. Defaults to "default".
+	# cat=pmkshadowbox//o7; type=options[default,skip]; label= Counter Type: The mode to use for the gallery counter. May be either "default" or "skip". The default counter is a simple "1 of 5" message. The skip counter displays a separate link to each piece in the gallery, enabling quick navigation in large galleries. Defaults to "default".
 	counterType = default
 
 	# cat=pmkshadowbox//o8; type=options[none,resize,drag]; label= The mode to use for handling content that is too large for the viewport. May be one of "none", "resize", or "drag"  (for images). The "none" setting will not alter the image dimensions, though clipping may occur. Setting this to "resize"  enables on-the-fly resizing of large content. In this mode, the height and width of large, resizable content will be adjusted so that it may still be viewed in its entirety while maintaining its original aspect ratio. The "drag" mode will display an oversized image at its original resolution, but will allow the user to drag it within the view to see portions that may be clipped. See the demo for a demonstration of all three modes of operation. Defaults to "resize".
@@ -129,9 +129,9 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox//o1; type=options[classic=, closeOnTop=EXT:pmkshadowbox/resources/skinModifications/closeOnTop/, web3=EXT:pmkshadowbox/resources/skinModifications/web3/, web3WithSave=EXT:pmkshadowbox/resources/skinModifications/web3WithSave/]; label= Skin Modification: Just select an option if you want a special skin modification. By default we are using the classic shadowbox theme.
 	skinModificationDirectory =
 
-	# cat=pmkshadowbox//o2; type=string; label=Flash Player: You can change the default player with this option. You must enter the path relative to your website root. The EXT: syntax is allowed and the configuration defaults to a blank string (default flash player).
+	# cat=pmkshadowbox//o2; type=string; label= Flash Player: You can change the default player with this option. You must enter the path relative to your website root. The EXT: syntax is allowed and the configuration defaults to a blank string (default flash player).
 	flashPlayer =
 
-	# cat=pmkshadowbox//o3; type=string; label=Flash Express Install Script: If you need to change the flash express install script, you can use this option to enter an alternative. The value must be a relative path to the website root and defaults to a blank string (default express install script).
+	# cat=pmkshadowbox//o3; type=string; label= Flash Express Install Script: If you need to change the flash express install script, you can use this option to enter an alternative. The value must be a relative path to the website root and defaults to a blank string (default express install script).
 	flashExpressInstallScript =
 }

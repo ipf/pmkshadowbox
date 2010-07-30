@@ -32,5 +32,4 @@ plugin.pmkshadowbox {
 
 	# cat=pmkshadowbox//om; type=options[imagetitletext,imagealttext,imagecaption]; label= tt_news Caption Field: tt_news field to use as caption inside the Shadowbox.
 	tt_news.captionField = imagetitletext
-
 }
