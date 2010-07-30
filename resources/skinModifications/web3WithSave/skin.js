@@ -23,38 +23,36 @@ function toggleLoading(on, callback) {
 		save = get("sb-nav-save"),
 		print = get("sb-nav-print"),
         anim = (playerName == "img" || playerName == "html"); // fade on images & html
-alert(playerName);
+
     save.style.display = (playerName != "img") ? "none" : "";
     print.style.display = (playerName != "img" && playerName != "iframe") ? "none" : "";
 
+	var wrapped = '';
+	var fromOpacityValue = 0;
     if (on) {
         S.setOpacity(loading, 0);
-        loading.style.display = "block";
+        loading.style.display = 'block';
 
-        var wrapped = function() {
+		fromOpacityValue = 1;
+        wrapped = function() {
             S.clearOpacity(loading);
             if (callback)
                 callback();
-        }
-        if (anim) {
-            animate(loading, "opacity", 1, S.options.fadeDuration, wrapped);
-        } else {
-            wrapped();
         }
     } else {
-        var wrapped = function() {
-            loading.style.display = "none";
+        wrapped = function() {
+            loading.style.display = 'none';
             S.clearOpacity(loading);
             if (callback)
                 callback();
         }
-
-        if (anim) {
-            animate(loading, "opacity", 0, S.options.fadeDuration, wrapped);
-        } else {
-            wrapped();
-        }
     }
+
+	if (anim) {
+		animate(loading, 'opacity', fromOpacityValue, S.options.fadeDuration, wrapped);
+	} else {
+		wrapped();
+	}
 }
 
 pngIds = [];
