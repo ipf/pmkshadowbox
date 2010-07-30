@@ -25,7 +25,7 @@ function toggleLoading(on, callback) {
         anim = (playerName == "img" || playerName == "html"); // fade on images & html
 
     save.style.display = (playerName != "img") ? "none" : "";
-    print.style.display = (playerName != "img" && playerName != "iframe") ? "none" : "";
+    print.style.display = (playerName == "img" || (playerName == "iframe" && /(www\.)?youtube\.com/i.test(S.getCurrent().link.hostname) == false)) ? "" : "none";
 
 	var wrapped = '';
 	var fromOpacityValue = 0;
