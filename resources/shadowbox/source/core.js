@@ -789,8 +789,14 @@ S.makeObject = function(link, options) {
         // extract any other parameters
         each(rel.split(';'), function(i, p) {
             match = p.match(inlineParam);
-            if (match)
-                obj[match[1]] = match[2];
+            if (match) {
+				if (match[1]=='options') {
+					obj[match[1]] = eval( '('+ match[2] +')' );
+				}
+				else {
+					obj[match[1]] = match[2];
+				}
+			}
         });
     }
 
