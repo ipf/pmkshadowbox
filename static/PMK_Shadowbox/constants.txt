@@ -132,6 +132,9 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox//o2; type=string; label= Flash Player: You can change the default player with this option. You must enter the path relative to your website root. The EXT: syntax is allowed and the configuration defaults to a blank string (default flash player).
 	flashPlayer =
 
-	# cat=pmkshadowbox//o3; type=string; label= Flash Express Install Script: If you need to change the flash express install script, you can use this option to enter an alternative. The value must be a relative path to the website root and defaults to a blank string (default express install script).
+	# cat=pmkshadowbox//o3; type=string; label= Flash Player YouTube companion: You can change the default player with this option. You must enter the path relative to your website root. The EXT: syntax is allowed and the configuration defaults to a blank string (default flash player companion).
+	flashPlayerYT =
+
+	# cat=pmkshadowbox//o4; type=string; label= Flash Express Install Script: If you need to change the flash express install script, you can use this option to enter an alternative. The value must be a relative path to the website root and defaults to a blank string (default express install script).
 	flashExpressInstallScript =
 }

@@ -20,6 +20,7 @@ page.headerData.1230 {
 			language.data = TSFE:lang
 			languageFallback = {$plugin.pmkshadowbox.fallbackLanguage}
 			flashPlayer = {$plugin.pmkshadowbox.flashPlayer}
+			flashPlayerYT = {$plugin.pmkshadowbox.flashPlayerYT}
 			flashExpressInstallScript = {$plugin.pmkshadowbox.flashExpressInstallScript}
 		}
 	}

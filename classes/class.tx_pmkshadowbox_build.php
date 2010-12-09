@@ -3,6 +3,7 @@
 *  Copyright notice
 *
 *  (c) 2010 Stefan Galinski (stefan.galinski@gmail.com)
+*  (c) 2010 Peter Klein (pmk@io.dk)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -32,6 +33,7 @@ require_once(PATH_typo3 . 'contrib/jsmin/jsmin.php');
  * This class contains methods for building up the shadowbox script.
  *
  * @author Stefan Galinski <stefan.galinski@gmail.com>
+ * @author Peter Klein <pmk@io.dk>
  */
 class tx_pmkshadowbox_build {
 	/**
@@ -259,6 +261,25 @@ class tx_pmkshadowbox_build {
 	}
 
 	/**
+	 * Checks the availability of the given flash player YouTube companion and returns the normalized, relative
+	 * path based on the TYPO3 root directory. If the file doesn't exists a blank string is
+	 * returned.
+	 *
+	 * @param string $flashPlayerYT relative path to a flash player script
+	 * @return string
+	 */
+	protected function getFlashPlayerYT($flashPlayerYT) {
+		$flashPlayerYT = t3lib_div::getFileAbsFileName($flashPlayerYT);
+		if (file_exists($flashPlayerYT)) {
+			$flashPlayerYT = str_replace(PATH_site, '', $flashPlayerYT);
+		} else {
+			$flashPlayerYT = '';
+		}
+
+		return $flashPlayerYT;
+	}
+
+	/**
 	 * Checks the availability of the given express install script and returns the normalized,
 	 * relative path based on the TYPO3 root directory. If the file doesn't exists a blank
 	 * string is returned.
@@ -399,14 +420,20 @@ class tx_pmkshadowbox_build {
 	 * Note: The two parameters can be used to override the default resource
 	 *
 	 * @param string $flashPlayer relative path to an alternative flash player (default: blank)
+	 * @param string $flashPlayerYT relative path to an alternative flash player (default: blank)
 	 * @param string $expressInstallScript relative path to an express install script (default: blank)
 	 * @return void
 	 */
-	protected function copyFlashResources($flashPlayer = '', $expressInstallScript = '') {
+	protected function copyFlashResources($flashPlayer = '', $flashPlayerYT = '', $expressInstallScript = '') {
 		if ($flashPlayer === '') {
 			$flashPlayer = $this->sourceDirectory . 'resources/player.swf';
 		}
 		$this->cacheHandler->copyResourceFile(PATH_site . $flashPlayer, 'player.swf');
+
+		if ($flashPlayerYT === '') {
+			$flashPlayerYT = $this->sourceDirectory . 'resources/yt.swf';
+		}
+		$this->cacheHandler->copyResourceFile(PATH_site . $flashPlayerYT, 'yt.swf');
 
 		if ($expressInstallScript === '') {
 			$expressInstallScript = $this->sourceDirectory . 'resources/expressInstall.swf';
@@ -502,6 +529,7 @@ class tx_pmkshadowbox_build {
 		$configuration['useFlash'] = $this->needsFlash($configuration['players']);
 		$configuration['useSizzle'] = $this->getCssSelectorSupport($configuration['useSizzle']);
 		$configuration['flashPlayer'] = $this->getFlashPlayer($configuration['flashPlayer']);
+		$configuration['flashPlayerYT'] = $this->getFlashPlayerYT($configuration['flashPlayerYT']);
 		$configuration['flashExpressInstallScript'] = $this->
 			getFlashExpressInstallScript($configuration['flashExpressInstallScript']);
 		$configuration['skinModificationDirectory'] = $this->
@@ -528,6 +556,7 @@ class tx_pmkshadowbox_build {
 		if ($configuration['useFlash'] !== '') {
 			$this->copyFlashResources(
 				$configuration['flashPlayer'],
+				$configuration['flashPlayerYT'],
 				$configuration['flashExpressInstallScript']
 			);
 		}
