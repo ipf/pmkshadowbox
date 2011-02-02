@@ -1,5 +1,6 @@
 	# autoloading was introduced in 4.3.0
-[compatVersion < 4.3.0]
+[compatVersion = 4.3.0]
+[else]
 includeLibs.shadowboxCache = EXT:pmkshadowbox/classes/class.tx_pmkshadowbox_cache.php
 [end]
 
