@@ -169,6 +169,7 @@ class tx_ttnews_imageMarker extends tslib_pibase {
 		}
 
 		$cc = 0;
+		$theImgCode = '';
 		foreach ($imgs as $val) {
 			if ($cc == $imageNum)
 				break;

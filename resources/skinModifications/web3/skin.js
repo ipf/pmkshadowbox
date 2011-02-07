@@ -27,7 +27,7 @@ function toggleLoading(on, callback) {
             S.clearOpacity(loading);
             if (callback)
                 callback();
-        }
+        };
         if (anim) {
             animate(loading, "opacity", 1, S.options.fadeDuration, wrapped);
         } else {
@@ -39,7 +39,7 @@ function toggleLoading(on, callback) {
             S.clearOpacity(loading);
             if (callback)
                 callback();
-        }
+        };
 
         if (anim) {
             animate(loading, "opacity", 0, S.options.fadeDuration, wrapped);

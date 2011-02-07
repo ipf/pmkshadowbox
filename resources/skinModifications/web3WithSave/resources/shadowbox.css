@@ -100,18 +100,12 @@
   padding: 0;
   overflow: hidden;
 }
-#sb-title, #sb-title-inner {
-/*  height: 26px;
-  line-height: 26px;*/
-}
+
 #sb-title-inner {
-  padding: 3px 0px;
+  padding: 3px 0;
   font-size: 12px;
 }
-#sb-info, #sb-info-inner {
-/*  height: 20px;
-  line-height: 20px;*/
-}
+
 #sb-info-inner {
   font-size: 12px;
 }
@@ -139,9 +133,7 @@
 
 #sb-nav2 a#sb-nav-close {
   display: block;
-  background-image: url(nav.png);
-  background-repeat: no-repeat;
-  background-position: -56px 0px;
+  background: url(nav.png) no-repeat -56px 0;
   margin: 6px 3px 0 0;
   height: 22px;
   width: 22px;
@@ -153,9 +145,7 @@
 }
 #sb-nav2 a#sb-nav-save {
   display: block;
-  background-image: url(nav.png);
-  background-repeat: no-repeat;
-  background-position: -78px 0px;
+  background: url(nav.png) no-repeat -78px 0;
   height: 16px;
   width: 16px;
   cursor: pointer;
@@ -167,9 +157,7 @@
 }
 #sb-nav2 a#sb-nav-print {
   display: block;
-  background-image: url(nav.png);
-  background-repeat: no-repeat;
-  background-position: -94px 0px;
+  background: url(nav.png) no-repeat -94px 0;
   height: 16px;
   width: 16px;
   cursor: pointer;
@@ -180,33 +168,25 @@
   background-position: -94px -16px;
 }
 #sb-nav-next {
-  background-image: url(nav.png);
-  background-repeat: no-repeat;
-  background-position: -14px 0px;
+  background: url(nav.png) no-repeat -14px 0;
 }
 #sb-nav-next:hover {
   background-position: -14px -14px;
 }
 #sb-nav-previous {
-  background-image: url(nav.png);
-  background-repeat: no-repeat;
-  background-position: 0px 0px;
+  background: url(nav.png) no-repeat 0 0;
 }
 #sb-nav-previous:hover {
-  background-position: 0px -14px;
+  background-position: 0 -14px;
 }
 #sb-nav-play {
-  background-image: url(nav.png);
-  background-repeat: no-repeat;
-  background-position: -28px 0px;
+  background: url(nav.png) no-repeat -28px 0;
 }
 #sb-nav-play:hover {
   background-position: -28px -14px;
 }
 #sb-nav-pause {
-  background-image: url(nav.png);
-  background-repeat: no-repeat;
-  background-position: -42px 0px;
+  background: url(nav.png) no-repeat -42px 0;
 }
 #sb-nav-pause:hover {
   background-position: -42px -14px;

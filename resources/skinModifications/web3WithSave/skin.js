@@ -106,4 +106,4 @@ S.print = function(){
 S.setSave = function(){
 	var sv = get("sb-nav-save");
 	if (sv) sv.href = "index.php?eID=pmkshadowbox&mode=save&image=" + S.getCurrent()["content"];
-}
+};

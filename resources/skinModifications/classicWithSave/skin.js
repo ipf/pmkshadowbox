@@ -25,7 +25,7 @@ function toggleLoading(on, callback) {
             S.clearOpacity(loading);
             if (callback)
                 callback();
-        }
+        };
 
         if (anim) {
             animate(loading, "opacity", 1, S.options.fadeDuration, wrapped);
@@ -38,7 +38,7 @@ function toggleLoading(on, callback) {
             S.clearOpacity(loading);
             if (callback)
                 callback();
-        }
+        };
 
         if (anim) {
             animate(loading, "opacity", 0, S.options.fadeDuration, wrapped);
@@ -98,5 +98,5 @@ S.print = function(){
 S.setSave = function(){
 	var sv = get("sb-nav-save");
 	if (sv) sv.href = "index.php?eID=pmkshadowbox&mode=save&image=" + S.getCurrent()["content"];
-}
+};
 
