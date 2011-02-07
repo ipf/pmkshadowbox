@@ -100,13 +100,7 @@ page.headerData.1233 {
 
 	30 = TEXT
 	30 {
-		value (
-			if (window.addEventListener) {
-				window.addEventListener('load', shadowBoxInit, false);
-			} else if (window.attachEvent) {
-				window.attachEvent('onload', shadowBoxInit);
-			}
-		)
+		value = shadowBoxInit();
 	}
 
 		# image map initialisation
