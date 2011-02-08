@@ -43,6 +43,9 @@ plugin.pmkshadowbox {
 	# cat=pmkshadowbox/enable/ed; type=boolean; label= Use Sizzle?: Set this false to disable loading the Sizzle.js CSS selector library. Note that if you choose not to use Sizzle you may not use CSS selectors to set up your links. Defaults to true.
 	useSizzle = 1
 
+	# cat=pmkshadowbox/enable/ee; type=boolean; label= Include JS in footer: Set this true to include shadowbox.js file inside the footer. Defaults to false.
+	includeJsInFooter = 0
+
 
 
 
