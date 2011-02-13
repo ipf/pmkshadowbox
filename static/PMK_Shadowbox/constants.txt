@@ -104,7 +104,7 @@ plugin.pmkshadowbox {
 	overlayColor = #000000
 
 	# cat=pmkshadowbox//z2; type=string; label= Flash parameters: A list of parameters (in a JavaScript object) that will be passed to a flash <object>. For a partial list of available parameters, see this page. Only one parameter is specified by default: bgcolor. Defaults to {bgcolor:"#000000"}.
-	flashParams = {bgcolor:"#000000"}
+	flashParams = {bgcolor:"#000000",allowfullscreen:"true"}
 
 	# cat=pmkshadowbox//z3; type=string; label= Minimum Flash Version: The minimum flash version required to play a flash movie (as a string). Defaults to "9.0.0".
 	flashVersion = 9.0.0
