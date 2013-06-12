@@ -41,7 +41,7 @@ S.iframe.prototype = {
 
         var html = '<iframe id="' + this.id + '" name="' + this.id + '" height="100%" ' +
             'width="100%" frameborder="0" marginwidth="0" marginheight="0" ' +
-            'style="visibility:hidden;" ' +
+            'style="visibility:visible;" ' +
 			'onload="this.style.visibility=\'visible\'" ' +
             'scrolling="' + scrolling + '"';
 
