@@ -27,7 +27,7 @@
 ***************************************************************/
 
 	// unfortunately not automatically loaded
-require_once(PATH_typo3 . 'contrib/jsmin/jsmin.php');
+require_once(t3lib_extMgm::extPath('pmkshadowbox') . 'resources/jsmin.php');
 
 /**
  * This class contains methods for building up the shadowbox script.
