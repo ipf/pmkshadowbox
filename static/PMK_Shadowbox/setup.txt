@@ -1,13 +1,7 @@
-	# autoloading was introduced in 4.3.0
-[compatVersion = 4.3.0]
-[else]
-includeLibs.shadowboxCache = EXT:pmkshadowbox/classes/class.tx_pmkshadowbox_cache.php
-[end]
-
-	# Shadowbox Build Generation
-	#
-	# Note: This header data part must always executed before the other ones. Otherwise
-	# the register value can't be accessed and we are missing the build path information.
+# Shadowbox Build Generation
+#
+# Note: This header data part must always executed before the other ones. Otherwise
+# the register value can't be accessed and we are missing the build path information.
 includeLibs.shadowboxBuild = EXT:pmkshadowbox/classes/class.tx_pmkshadowbox_build.php
 page.headerData.1230 = LOAD_REGISTER
 page.headerData.1230 {
@@ -27,20 +21,18 @@ page.headerData.1230 {
 	}
 }
 
-	# javascript inclusion
+# javascript inclusion
 page.headerData.1231 = TEXT
 page.headerData.1231 {
 	dataWrap = <script type="text/javascript" src="{TSFE:absRefPrefix}{register:buildDirectory}shadowbox.js"></script>
 }
 
-	# css inclusion
+# css inclusion
 page.headerData.1232 = TEXT
 page.headerData.1232 {
 	dataWrap = <link type="text/css" media="all" rel="stylesheet" href="{TSFE:absRefPrefix}{register:buildDirectory}shadowbox.css" />
 }
 
-	# We should use jsFooterInline if we drop support for version lesser than 4.3
-	# Note: The javascript is loaded in an external file if you set the related cleanup option in your TS config.
 page.headerData.1233 = COA
 page.headerData.1233 {
 	wrap (
@@ -126,7 +118,7 @@ page.headerData.1233 {
 	}
 }
 
-	# Code for printing shadowbox HTML (iframe) content.
+# Code for printing shadowbox HTML (iframe) content.
 [globalVar = GP:print = 2]
 page.headerData.1229 = TEXT
 page.headerData.1229.value (
@@ -152,7 +144,7 @@ page.headerData.1229.value (
 )
 [global]
 
-	// Include all js in footer
+// Include all js in footer
 [globalVar = LIT:1 = {$plugin.pmkshadowbox.includeJsInFooter}]
 page.footerData.1231 < page.headerData.1231
 page.headerData.1231 >
