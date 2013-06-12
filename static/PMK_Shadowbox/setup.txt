@@ -87,7 +87,8 @@ page.headerData.1233 {
 					skipSetup: {$plugin.pmkshadowbox.skipSetup},
 					slideshowDelay: {$plugin.pmkshadowbox.slideshowDelay},
 					viewportPadding: {$plugin.pmkshadowbox.viewportPadding},
-					preserveAspectWhileResizing: {$plugin.pmkshadowbox.preserveAspectWhileResizing}
+					preserveAspectWhileResizing: {$plugin.pmkshadowbox.preserveAspectWhileResizing},
+					troubleElements: {$plugin.pmkshadowbox.troubleElements}
 				});
 			}
 		)
