@@ -41,6 +41,11 @@ class tx_ttnews_imageMarker extends tslib_pibase {
 		$this->pi_loadLL();
 		$this->conf = &$tt_news->conf;
 
+		if ($tt_news->config['FFimgH'] || $tt_news->config['FFimgW']) {
+			$lConf['image.']['file.']['maxW'] = $tt_news->config['FFimgW'];
+			$lConf['image.']['file.']['maxH'] = $tt_news->config['FFimgH'];
+		}
+
 		$this->makeImageMarkers($row,$lConf,$tt_news,$parentMarkerArray);
 
 		return $parentMarkerArray;
