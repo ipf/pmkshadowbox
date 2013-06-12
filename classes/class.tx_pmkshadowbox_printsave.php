@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010 Peter Klein <pmk@io.dk>
+*  (c) 2011 Peter Klein <pmk@io.dk>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -28,13 +28,15 @@
 class tx_pmkshadowbox_printsave {
 
 	public function main() {
-		$image = t3lib_div::_GET('image');
-		//first check if the requested file has an valid image file extension, not the nicest security feature but at least it prevents from downloading php files like localconf.php.
+		$image = $this->cleanGPValue(t3lib_div::_GET('image'));
+		// Check if the requested file has an valid image file extension
 		$allowedExtensions = t3lib_div::trimExplode(',', (strlen($TYPO3_CONF_VARS['GFX']['imagefile_ext']) > 0 ? $TYPO3_CONF_VARS['GFX']['imagefile_ext'] : 'gif,jpg,jpeg,tif,bmp,pcx,tga,png,pdf,ai'), 1);
 		$imageInfo = pathinfo($image);
-		if(!in_array(strtolower($imageInfo['extension']), $allowedExtensions)) { die('You are trying to download a file, which you don\'t have access to'); }
+		if (!in_array(strtolower($imageInfo['extension']), $allowedExtensions)) die('You are trying to download/print a file, which you don\'t have access to.');
 
-		switch (t3lib_div::_GET('mode')) {
+		if (!is_file(t3lib_div::getFileAbsFileName(str_replace(t3lib_div::getIndpEnv('TYPO3_SITE_URL'),'',$image)))) die('File not found!');
+
+		switch ($this->cleanGPValue(t3lib_div::_GET('mode'))) {
 			case 'print':
 				$this->print_image($image);
 			break;
@@ -116,6 +118,22 @@ class tx_pmkshadowbox_printsave {
 			$ob_active = ob_get_length () !== false;
 		}
 		return true;
+	}
+
+	// Clean GET/POST values to prevent XSS/PoC attacks
+	private function cleanGPValue($value,$htmlspecialchars = 1) {
+		// Remove HTML tags in value
+		$value = strip_tags($value);
+
+		// Decode URL-encoded chars
+		$value = rawurldecode($value);
+
+		// Remove all characters with ascii value below 32
+		$value = preg_replace('/[\x{00}-\x{1F}]/iu', '', $value);
+		//$value = preg_replace('/\W/si', '', $value);
+
+		// Convert special characters to HTML entities
+		return $htmlspecialchars ? htmlspecialchars($value) : $value;
 	}
 }
 
