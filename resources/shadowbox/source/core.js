@@ -779,7 +779,7 @@ S.makeObject = function(link, options) {
         obj.player = S.getPlayer(obj.content);
 
     // HTML options always trump JavaScript options, so do these last
-    var rel = link.getAttribute("rel");
+    var rel = link.getAttribute("rel") || link.getAttribute('data-rel');
     if (rel) {
         // extract gallery name from shadowbox[name] format
         var match = rel.match(galleryName);

@@ -41,7 +41,7 @@ S.select = function(selector) {
     if (!selector) {
         var rel;
         each(document.getElementsByTagName("a"), function(i, el) {
-            rel = el.getAttribute("rel");
+            rel = el.getAttribute("rel") || el.getAttribute('data-rel');
             if (rel && relAttr.test(rel))
                 links.push(el);
         });
