@@ -17,7 +17,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'shy' => 0,
 	'version' => '3.2.1',
 	'dependencies' => '',
-	'conflicts' => 'kj_imagelightbox2,perfectlightbox,wsclicklightbox,ju_multibox,pmkslimbox',
+	'conflicts' => 'kj_imagelightbox2,perfectlightbox,wsclicklightbox,ju_multibox,pmkslimbox,dam_ttnews',
 	'priority' => '',
 	'loadOrder' => '',
 	'module' => '',
@@ -46,6 +46,7 @@ $EM_CONF[$_EXTKEY] = array(
 			'wsclicklightbox' => '0.0.0-0.0.0',
 			'ju_multibox' => '0.0.0-0.0.0',
 			'pmkslimbox' => '0.0.0-0.0.0',
+			'dam_ttnews' => '0.0.0-0.0.0',
 		),
 		'suggests' => 
 		array (
