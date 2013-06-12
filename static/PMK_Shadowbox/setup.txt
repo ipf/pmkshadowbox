@@ -96,20 +96,15 @@ page.headerData.1233 {
 		value = shadowBoxInit();
 	}
 
-		# image map initialisation
+	# image map initialisation
 	40 = TEXT
 	40 {
 		value (
-			function shadowBoxSetup() {
+			Shadowbox.onReady = function() {
 				var shadowBoxElements = document.getElementsByTagName('area');
 				if (shadowBoxElements.length) {
 					Shadowbox.setup(shadowBoxElements, {$plugin.pmkshadowbox.imageMapOptions});
 				}
-			}
-			if (window.addEventListener) {
-				window.addEventListener('load', shadowBoxSetup, false);
-			} else if (window.attachEvent) {
-				window.attachEvent('onload', shadowBoxSetup);
 			}
 		)
 
